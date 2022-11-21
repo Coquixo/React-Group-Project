@@ -17,9 +17,9 @@ const Header = () => {
     return (
         <div className='headerDesign'>
 
-            <div>AquiVaElnombre</div>
-            <div onClick={() => navigate('/loginForm')} className="linkDesign">Login</div>
-            <div onClick={() => navigate('/registerForm')} className="linkDesign">Register</div>
+            
+            <div onClick={() => navigate('/login')} className="linkDesign">Login</div>
+            <div onClick={() => navigate('/register')} className="linkDesign">Register</div>
 
 
         </div>

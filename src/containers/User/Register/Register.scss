@@ -1,0 +1,11 @@
+.registerDesgin {
+    height: 80vh; //Le damos un 80x100
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: darkkhaki;
+}
