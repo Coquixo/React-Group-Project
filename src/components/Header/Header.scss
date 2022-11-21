@@ -1,0 +1,28 @@
+
+.headerDesign {
+
+    height: 20vh;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    background-color: rgb(255, 255, 255);
+}
+
+.linkDesign {
+
+    font-weight: bold;
+
+    margin-right: 3em;
+    margin-bottom: 1.5em;
+}
+
+.inputDesign {
+
+    margin-right: 3em;
+    margin-bottom: 1.5em;
+
+}
