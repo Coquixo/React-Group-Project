@@ -1,11 +1,58 @@
-.registerDesgin {
-    height: 80vh; //Le damos un 80x100
+.formSquare {
+    height: 80vh;
+    width: 80vw;
+    background-color: white;
+
+
+}
+
+.registerDesign {
+    height: 90vh; //Le damos un 90x100
     width: 100vw;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: white;
 
-    background-color: darkkhaki;
+    background-color: rgb(38 38 38);
+}
+
+.registerInputs {
+
+    margin: 0.5em;
+    width: 40vw;
+    height: 5vh;
+    display: flex;
+    text-align: center;
+    border-radius: 2em;
+    border: 2px solid white;
+    background-color: rgb(156, 156, 156);
+    color: black;
+}
+
+.registerInputs::placeholder {
+
+    color: rgb(255, 255, 255);
+}
+
+.errorInput {
+    color: red;
+    font-size: x-small;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    
+ 
+}
+
+.submitButton {
+    border: 2px solid white;
+    height: 5vh;
+    width: 10vw;
+    border-radius: 2em;
+    background-color: aqua;
+    color: white;
 }
