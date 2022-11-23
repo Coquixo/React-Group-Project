@@ -7,49 +7,57 @@ export const errorCheck = (value, type) => {
 
             if (! /[a-z]/gi.test(value)) {
                 return "*No valid format, please use characters";
+            } else {
+                return '';
             }
 
-            break;
 
         case "email":
 
-            if (! /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(value)) {
-                return "*Email incorrect format";
+            if (! /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(value)) {
+                return "Email incorrect format";
+            } else {
+                return '';
             }
 
-            break;
-
         case "age":
-            if (!/[0-9]/gi.test(value)){
+            if (!/[0-9]/gi.test(value)) {
                 return "*Please, add your age."
             }
 
         case "phone":
 
-            //Tiene un bug
-            if (! /[\d()+-]/g.test(value)) {
-                return "*Incorrect format, numbers only.";
+            if (! /(?=.*?[0-9])/.test(value)) {
+                return "Incorrect format, only numbers.";
+            } else {
+                return "";
             }
-
-            break;
 
         case "password":
+        case "password2":
 
-            //   falta añadir que se puedan meter numeros, y que sea obligatorio añdadir una en mayusculas
-            if (!/[a-zA-Z0-9]/gi.test(value) || value.length < 8) {
-                return "*Introduce a valid password, not special characters, 8 minimun"
+            if (value.length < 8) {
+                return "Write 8 characters at least"
+            } else {
+
+                //Checking the password format....
+
+                if (! /[\d()+-]/g.test(value)) {
+                    return "*Introduce a valid password";
+                } else {
+                    return "";
+                }
             }
-
-            break;
-
         case "adress":
 
             if (!/[a-zA-Z0-9]/gi.test(value) /*&& /["!@#$%^&*()+=-\\\';,./{}|\":<>?]/gi.test(value)*/) {
                 return "*Do not use special characters, please."
+            } else {
+                return "";
             }
 
         default:
-            console.log("No se ha tenido en cuenta algun error");
+            console.log("Some errors have not been taken into account");
 
             break;
 
@@ -61,3 +69,5 @@ export const errorCheck = (value, type) => {
 
 
 }
+
+

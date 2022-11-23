@@ -1,5 +1,5 @@
 .loginDesign {
-    height: 80vh; //Le damos un 80x100
+    height: 90vh; //Le damos un 90x100
     width: 100vw;
 
     display: flex;
@@ -7,7 +7,9 @@
     justify-content: center;
     align-items: center;
 
-    background-color: lightgoldenrodyellow;
+    color: white;
+    background-color: rgb(38 38 38);
+
 }
 
 .buttonDesign {
@@ -18,17 +20,62 @@
     justify-content: center;
     align-items: center;
 
-    margin-top: 2em;
-    background-color: red;
-    border-radius: 1em;
-
-    cursor: pointer;
-    color: white;
-
     transition: 0.2s;
+    margin: 0.5em 0 0 0;
+    border: 2px solid white;
+    border-radius: 1em;
+    background-color: aqua;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    font-weight: 500;
 }
 
 .buttonDesign:hover {
-    background-color: darkred;
     transition: 0.2s;
+    width: 14vw;
+    transition: 0.2s width;
+    color: red;
+    font-weight: 600;
+}
+
+
+.inputsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(248 250 252);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: small;
+
+}
+
+
+.inputLogin {
+    margin: 0.3em;
+    width: 40vw;
+    height: 5vh;
+    display: flex;
+    text-align: center;
+    border-top-right-radius: 0.8em;
+    border-bottom-left-radius: 0.8em;
+    border: 2px solid white;
+    background-color: rgb(156, 156, 156);
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.inputLogin::placeholder {
+
+    color: rgb(255, 255, 255);
+}
+
+.inputLoginError {
+    border: 0.2 solid red;
+}
+
+
+.errorMessage {
+    color: red;
+    font-size: x-small;
 }
