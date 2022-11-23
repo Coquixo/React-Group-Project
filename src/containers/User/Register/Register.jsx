@@ -29,6 +29,8 @@ const Register = () => {
         password2Error: ""
     });
 
+    const [message, setMessage] = useState('');
+
 
     //Handlers inputs usuario
 
@@ -56,6 +58,7 @@ const Register = () => {
 
     }
 
+
     return (
         <div className="registerDesign">
 
@@ -63,30 +66,33 @@ const Register = () => {
                 <h2 className=''>WELCOME</h2>
                 {/* <form action=""> */}
                 <input type="text" name="name" className='registerInputs' placeholder='Name'
-                    onChange={(e) => inputHandler(e)} onBlur={(e) => errorHandler(e.target.name, e.target.value, "text")} />
+                    onChange={(e) => { inputHandler(e); setMessage(e.target.value) }} onBlur={(e) => errorHandler(e.target.name, e.target.value, "text")} />
                 <div className='errorInput'>{userError.nameError}</div>
                 <input type="text" name="surname" className='registerInputs' placeholder='Surname'
-                    onChange={(e) => inputHandler(e)} onBlur={(e) => errorHandler(e.target.name, e.target.value, "text")} />
+                    onChange={(e) => { inputHandler(e); setMessage(e.target.value) }} onBlur={(e) => errorHandler(e.target.name, e.target.value, "text")} />
                 <div className='errorInput'>{userError.surnameError}</div>
                 <input type="text" name="email" className='registerInputs' placeholder='Email'
-                    onChange={(e) => inputHandler(e)} onBlur={(e) => errorHandler(e.target.name, e.target.value, "email")} />
+                    onChange={(e) => { inputHandler(e); setMessage(e.target.value) }} onBlur={(e) => errorHandler(e.target.name, e.target.value, "email")} />
                 <div className='errorInput'>{userError.emailError}</div>
                 <input type="number" min="0" max="150" name="age" className='registerInputs' placeholder='Age'
-                    onChange={(e) => inputHandler(e)} onBlur={(e) => errorHandler(e.target.name, e.target.value, "age")} />
+                    onChange={(e) => { inputHandler(e); setMessage(e.target.value) }} onBlur={(e) => errorHandler(e.target.name, e.target.value, "age")} />
                 <div className='errorInput'>{userError.ageError}</div>
                 <input type="text" name="phone" className='registerInputs' placeholder='Phone Number'
-                    onChange={(e) => inputHandler(e)} onBlur={(e) => errorHandler(e.target.name, e.target.value, "phone")} />
+                    onChange={(e) => { inputHandler(e); setMessage(e.target.value) }} onBlur={(e) => errorHandler(e.target.name, e.target.value, "phone")} />
                 <div className='errorInput'>{userError.phoneError}</div>
                 <input type="text" name="adress" className='registerInputs' placeholder='Adress'
-                    onChange={(e) => inputHandler(e)} onBlur={(e) => errorHandler(e.target.name, e.target.value, "adress")} />
+                    onChange={(e) => { inputHandler(e); setMessage(e.target.value) }} onBlur={(e) => errorHandler(e.target.name, e.target.value, "adress")} />
                 <div className='errorInput'>{userError.adressError}</div>
                 <input type="password" name="password" className='registerInputs' placeholder='Password'
-                    onChange={(e) => inputHandler(e)} onBlur={(e) => errorHandler(e.target.name, e.target.value, "password")} />
+                    onChange={(e) => { inputHandler(e); setMessage(e.target.value) }} onBlur={(e) => errorHandler(e.target.name, e.target.value, "password")} />
                 <div className='errorInput'>{userError.passwordError}</div>
                 <input type="password" name="password2" className='registerInputs' placeholder='Repeat your password'
-                    onChange={(e) => inputHandler(e)} onBlur={(e) => errorHandler(e.target.name, e.target.value, "password")} />
+                    onChange={(e) => { inputHandler(e); setMessage(e.target.value) }} onBlur={(e) => errorHandler(e.target.name, e.target.value, "password")} />
                 <div className='errorInput'>{userError.password2Error}</div>
-                <input type="button" value="Sign In" className='submitButton' />
+                <a href="https://www.google.com/">
+
+                    <input type="button" value="Sign In" className='submitButton' disabled={!message} />
+                </a>
 
                 {/* </form> */}
             </div>
