@@ -44,7 +44,7 @@ export const errorCheck = (value, type) => {
 
         case "adress":
 
-            if (!/[a-zA-Z0-9]/gi.test(value)) {
+            if (!/[a-zA-Z0-9]/gi.test(value) /*&& /["!@#$%^&*()+=-\\\';,./{}|\":<>?]/gi.test(value)*/) {
                 return "Do not use special characters, please."
             }
 

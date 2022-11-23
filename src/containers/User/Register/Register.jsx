@@ -57,9 +57,10 @@ const Register = () => {
     }
 
     return (
-        <div className='formSquare'>
+        <div className="registerDesign">
 
-            <div className='registerDesign'>
+            <div className='formSquare'>
+                <h2 className=''>WELCOME</h2>
                 {/* <form action=""> */}
                 <input type="text" name="name" className='registerInputs' placeholder='Name'
                     onChange={(e) => inputHandler(e)} onBlur={(e) => errorHandler(e.target.name, e.target.value, "text")} />
@@ -70,7 +71,7 @@ const Register = () => {
                 <input type="text" name="email" className='registerInputs' placeholder='Email'
                     onChange={(e) => inputHandler(e)} onBlur={(e) => errorHandler(e.target.name, e.target.value, "email")} />
                 <div className='errorInput'>{userError.emailError}</div>
-                <input type="number" min="0" max="150"  name="age" className='registerInputs' placeholder='Age'
+                <input type="number" min="0" max="150" name="age" className='registerInputs' placeholder='Age'
                     onChange={(e) => inputHandler(e)} onBlur={(e) => errorHandler(e.target.name, e.target.value, "age")} />
                 <div className='errorInput'>{userError.ageError}</div>
                 <input type="text" name="phone" className='registerInputs' placeholder='Phone Number'
@@ -89,10 +90,11 @@ const Register = () => {
 
                 {/* </form> */}
             </div>
+
         </div>
 
-
     )
+
 
 }
 
