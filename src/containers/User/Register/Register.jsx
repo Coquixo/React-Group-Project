@@ -70,14 +70,14 @@ const Register = () => {
                 <input type="text" name="email" className='registerInputs' placeholder='Email'
                     onChange={(e) => inputHandler(e)} onBlur={(e) => errorHandler(e.target.name, e.target.value, "email")} />
                 <div className='errorInput'>{userError.emailError}</div>
-                <input type="number" min="0" max="150" name="age" className='registerInputs' placeholder='Age'
+                <input type="number" min="0" max="150"  name="age" className='registerInputs' placeholder='Age'
                     onChange={(e) => inputHandler(e)} onBlur={(e) => errorHandler(e.target.name, e.target.value, "age")} />
                 <div className='errorInput'>{userError.ageError}</div>
                 <input type="text" name="phone" className='registerInputs' placeholder='Phone Number'
                     onChange={(e) => inputHandler(e)} onBlur={(e) => errorHandler(e.target.name, e.target.value, "phone")} />
                 <div className='errorInput'>{userError.phoneError}</div>
                 <input type="text" name="adress" className='registerInputs' placeholder='Adress'
-                    onChange={(e) => inputHandler(e)} onBlur={(e) => errorHandler(e.target.name, e.target.value, "text")} />
+                    onChange={(e) => inputHandler(e)} onBlur={(e) => errorHandler(e.target.name, e.target.value, "adress")} />
                 <div className='errorInput'>{userError.adressError}</div>
                 <input type="password" name="password" className='registerInputs' placeholder='Password'
                     onChange={(e) => inputHandler(e)} onBlur={(e) => errorHandler(e.target.name, e.target.value, "password")} />

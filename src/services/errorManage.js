@@ -19,25 +19,34 @@ export const errorCheck = (value, type) => {
 
             break;
 
+        case "age":
+            if (!/[0-9]/gi.test(value)){
+                return "Please, add your age."
+            }
+
         case "phone":
 
             //Tiene un bug
             if (! /[\d()+-]/g.test(value)) {
-                return "Escriba un formato de teléfono correcto";
+                return "Incorrect format, numbers only.";
             }
 
             break;
 
         case "password":
 
-        //   falta añadir que se puedan meter numeros, y que sea obligatorio añdadir una en mayusculas
-            if (!/[a-z]/gi.test(value) || value.length<8) {
-                return "Introduce a valid password, 8 characters minimun"
+            //   falta añadir que se puedan meter numeros, y que sea obligatorio añdadir una en mayusculas
+            if (!/[a-zA-Z0-9]/gi.test(value) || value.length < 8) {
+                return "Introduce a valid password, not special characters, 8 minimun"
             }
 
-
-
             break;
+
+        case "adress":
+
+            if (!/[a-zA-Z0-9]/gi.test(value)) {
+                return "Do not use special characters, please."
+            }
 
         default:
             console.log("FATAL ERROR WE ARE GOING TO DIE!");

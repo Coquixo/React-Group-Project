@@ -1,5 +1,5 @@
 .formSquare {
-    height: 80vh;
+    height: 90vh;
     width: 80vw;
     background-color: white;
 
@@ -26,7 +26,7 @@
     height: 5vh;
     display: flex;
     text-align: center;
-    border-radius: 2em;
+    border-radius: 0.8em;
     border: 2px solid white;
     background-color: rgb(156, 156, 156);
     color: black;
@@ -44,11 +44,12 @@
 
 input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
-    
+   
  
 }
 
 .submitButton {
+    margin: 0.5em 0 0 0;
     border: 2px solid white;
     height: 5vh;
     width: 10vw;
