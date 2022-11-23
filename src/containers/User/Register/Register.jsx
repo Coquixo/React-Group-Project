@@ -63,7 +63,7 @@ const Register = () => {
         <div className="registerDesign">
 
             <div className='formSquare'>
-                <h2 className=''>WELCOME</h2>
+                <h1 className=''>WELCOME</h1>
                 {/* <form action=""> */}
                 <input type="text" name="name" className='registerInputs' placeholder='Name'
                     onChange={(e) => { inputHandler(e); setMessage(e.target.value) }} onBlur={(e) => errorHandler(e.target.name, e.target.value, "text")} />
@@ -89,8 +89,9 @@ const Register = () => {
                 <input type="password" name="password2" className='registerInputs' placeholder='Repeat your password'
                     onChange={(e) => { inputHandler(e); setMessage(e.target.value) }} onBlur={(e) => errorHandler(e.target.name, e.target.value, "password")} />
                 <div className='errorInput'>{userError.password2Error}</div>
-                <a href="https://www.google.com/">
+                <input type="checkbox"  /> He leido la <i>politica</i> de <i>privacidad</i> de la empresa <br></br>
 
+                <a href="https://www.google.com/">
                     <input type="button" value="Sign In" className='submitButton' disabled={!message} />
                 </a>
 
