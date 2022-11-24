@@ -1,0 +1,51 @@
+.filmDesign {
+    height: 90vh; //Le damos un 90x100
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    background-color: rgb(38 38 38);
+
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    
+
+}
+
+
+.filmPic {
+    margin: 1em;
+    height: 19em;
+    width: 15em;
+}
+
+
+.buttonDesign {
+    height: 2.5em;
+    width: 7.5em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: 0.2s;
+    margin: 0.5em 0 0 0;
+    border: 2px solid white;
+    border-radius: 1em;
+    background-color: aqua;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.buttonDesign:hover {
+    transition: 0.2s;
+    width: 14vw;
+    transition: 0.2s width;
+    color: red;
+    font-weight: 600;
+}

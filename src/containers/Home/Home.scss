@@ -10,5 +10,32 @@
     justify-content: center;
     align-items: center;
 
-    background-color: darkslategrey;
+    color: white;
+    background-color: rgb(38 38 38);
+}
+
+.movieShow {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1em;
+
+
+}
+
+.moviePic {
+
+    height: 13em;
+    width: 7em;
+    transition: 0.3s;
+
+}
+
+.moviePic:hover{
+    height: 15em;
+    width: 9em;
+    transition: 0.3s;
+   
 }
