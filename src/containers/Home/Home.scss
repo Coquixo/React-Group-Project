@@ -5,10 +5,11 @@
 .containerDesign {
   display: flex;
   width: 100vw;
+  height: 90vh;
 }
 
 .homeDesign {
-  height: 100vh;
+  height: 90vh;
   width: 80vw;
   display: flex;
   flex-direction: row;
@@ -24,13 +25,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // margin: 1em ;
+  margin: 0.5em ;
   // padding: 1em;
 }
 
 .moviePic {
-  height: 13em;
-  width: 7em;
+  // height: 13em;
+  // width: 7em;
+  height: 11em;
+  width: 6em;
   transition: 0.3s;
 }
 
