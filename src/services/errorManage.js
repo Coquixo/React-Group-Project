@@ -1,73 +1,62 @@
 export const errorCheck = (value, type) => {
+  switch (type) {
+    case "text":
+      if (!/[a-z]/gi.test(value)) {
+        return "*No valid format, please use characters";
+      } else {
+        return "";
+      }
 
-    switch (type) {
+    case "email":
+      if (
+        !/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+          value
+        )
+      ) {
+        return "Email incorrect format";
+      } else {
+        return "";
+      }
 
+    case "age":
+      if (!/[0-9]/gi.test(value)) {
+        return "*Please, add your age.";
+      }
 
-        case "text":
+    case "phone":
+      if (!/(?=.*?[0-9])/.test(value)) {
+        return "Incorrect format, only numbers.";
+      } else {
+        return "";
+      }
 
-            if (! /[a-z]/gi.test(value)) {
-                return "*No valid format, please use characters";
-            } else {
-                return '';
-            }
+    case "password":
+    case "password2":
+      if (value.length < 8) {
+        return "Write 8 characters at least";
+      } else {
+        //Checking the password format....
 
+        if (!/[\d()+-]/g.test(value)) {
+          return "*Introduce a valid password";
+        } else {
+          return "";
+        }
+      }
+    case "adress":
+      if (
+        !/[a-zA-Z0-9]/gi.test(
+          value
+        ) /*&& /["!@#$%^&*()+=-\\\';,./{}|\":<>?]/gi.test(value)*/
+      ) {
+        return "*Do not use special characters, please.";
+      } else {
+        return "";
+      }
 
-        case "email":
+    default:
+      console.log("Some errors have not been taken into account");
 
-            if (! /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(value)) {
-                return "Email incorrect format";
-            } else {
-                return '';
-            }
-
-        case "age":
-            if (!/[0-9]/gi.test(value)) {
-                return "*Please, add your age."
-            }
-
-        case "phone":
-
-            if (! /(?=.*?[0-9])/.test(value)) {
-                return "Incorrect format, only numbers.";
-            } else {
-                return "";
-            }
-
-        case "password":
-        case "password2":
-
-            if (value.length < 8) {
-                return "Write 8 characters at least"
-            } else {
-
-                //Checking the password format....
-
-                if (! /[\d()+-]/g.test(value)) {
-                    return "*Introduce a valid password";
-                } else {
-                    return "";
-                }
-            }
-        case "adress":
-
-            if (!/[a-zA-Z0-9]/gi.test(value) /*&& /["!@#$%^&*()+=-\\\';,./{}|\":<>?]/gi.test(value)*/) {
-                return "*Do not use special characters, please."
-            } else {
-                return "";
-            }
-
-        default:
-            console.log("Some errors have not been taken into account");
-
-            break;
-
-    }
-
-
-
-
-
-
-}
-
-
+      break;
+  }
+};

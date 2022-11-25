@@ -1,81 +1,75 @@
 .loginDesign {
-    height: 90vh; //Le damos un 90x100
-    width: 100vw;
+  height: 90vh; //Le damos un 90x100
+  width: 100vw;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-    color: white;
-    background-color: rgb(38 38 38);
-
+  color: white;
+  background-color: rgb(38 38 38);
 }
 
 .buttonDesign {
-    height: 2.5em;
-    width: 7.5em;
+  height: 2.5em;
+  width: 7.5em;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    transition: 0.2s;
-    margin: 0.5em 0 0 0;
-    border: 2px solid white;
-    border-radius: 1em;
-    background-color: aqua;
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-    font-weight: 500;
+  transition: 0.2s;
+  margin: 0.5em 0 0 0;
+  border: 2px solid white;
+  border-radius: 1em;
+  background-color: aqua;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  font-weight: 500;
 }
 
 .buttonDesign:hover {
-    transition: 0.2s;
-    width: 14vw;
-    transition: 0.2s width;
-    color: red;
-    font-weight: 600;
+  transition: 0.2s;
+  width: 14vw;
+  transition: 0.2s width;
+  color: red;
+  font-weight: 600;
 }
-
 
 .inputsContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: rgb(248 250 252);
-    font-family: 'Courier New', Courier, monospace;
-    font-size: small;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(248 250 252);
+  font-family: "Courier New", Courier, monospace;
+  font-size: small;
 }
 
-
 .inputLogin {
-    margin: 0.3em;
-    width: 40vw;
-    height: 5vh;
-    display: flex;
-    text-align: center;
-    border-top-right-radius: 0.8em;
-    border-bottom-left-radius: 0.8em;
-    border: 2px solid white;
-    background-color: rgb(156, 156, 156);
-    color: black;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+  margin: 0.3em;
+  width: 40vw;
+  height: 5vh;
+  display: flex;
+  text-align: center;
+  border-top-right-radius: 0.8em;
+  border-bottom-left-radius: 0.8em;
+  border: 2px solid white;
+  background-color: rgb(156, 156, 156);
+  color: black;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .inputLogin::placeholder {
-
-    color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
 }
 
 .inputLoginError {
-    border: 0.2 solid red;
+  border: 0.2 solid red;
 }
 
-
 .errorMessage {
-    color: red;
-    font-size: x-small;
+  color: red;
+  font-size: small;
 }

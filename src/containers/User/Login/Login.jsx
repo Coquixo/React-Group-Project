@@ -26,14 +26,14 @@ const Login = () => {
     //Hooks:
     //Hooks de credenciales de usuario:
     const [user, setUser] = useState({
-        email: '',
-        password: ''
+        email: "",
+        password: ""
     });
 
 
     const [userError, setUserError] = useState({
-        emailError: '',
-        passwordError: '',
+        emailError: "",
+        passwordError: "",
 
     })
 
@@ -48,21 +48,34 @@ const Login = () => {
     }
 
 
-    const errorHandler = (e) => {
+    // const errorHandler = (e) => {
 
-        let error = '';
+    //     let error = "";
 
-        error = errorCheck(e.target.name, e.target.value);
+    //     error = errorCheck(e.target.name, e.target.value);
 
 
-        setUserError((prevState) => ({
+    //     setUserError((prevState) => ({
+    //         ...prevState,
+    //         [e.target.name + 'Error']: error
+    //     }));
+
+
+    // }
+
+    const errorHandler = (field, value, type) => {
+
+        let error = "";
+
+        error = errorCheck(value, type);
+
+        setUserError(((prevState) => ({
             ...prevState,
-            [e.target.name + 'Error']: error
-        }));
+            [field + "Error"]: error
 
+        })));
 
     }
-
 
 
     //Life cycle-methods:
@@ -141,9 +154,11 @@ const Login = () => {
         <div className='loginDesign'>
             <div className='inputsContainer'>
                 <h1 className=''>PLEASE ENTER YOUR DETAILS TO LOGIN</h1>
-                <input type="email" name='email' placeholder='example@gmail.com' onChange={(e) => inputHandler(e)} onBlur={(e) => errorHandler(e)} className={userError.emailError === '' ? 'inputLogin' : 'inputLogin inputLoginError'} />
+                <input type="email" name='email' placeholder='example@gmail.com'
+                    onChange={(e) => inputHandler(e)} onBlur={(e) => errorHandler(e)} className={userError.emailError === '' ? 'inputLogin' : 'inputLogin inputLoginError'} />
                 <div className='errorMessage'>{userError.emailError}</div>
-                <input type="password" name='password' placeholder='password' onChange={(e) => inputHandler(e)} onBlur={(e) => errorHandler(e)} className={userError.passwordError === '' ? 'inputLogin' : 'inputLogin inputLoginError'} />
+                <input type="password" name='password' placeholder='password'
+                    onChange={(e) => inputHandler(e)} onBlur={(e) => errorHandler(e.target.name, e.target.value, "password")} className={userError.passwordError === '' ? 'inputLogin' : 'inputLogin inputLoginError'} />
                 <div className='errorMessage'>{userError.passwordError}</div>
             </div>
             <div onClick={() => logMe()} className='buttonDesign'>
