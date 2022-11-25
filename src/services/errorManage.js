@@ -38,7 +38,7 @@ export const errorCheck = (value, type) => {
         //Checking the password format....
 
         if (!/[\d()+-]/g.test(value)) {
-          return "*Introduce a valid password";
+          return "*Write at least one number, one lowercase letter, and one uppercase letter.";
         } else {
           return "";
         }

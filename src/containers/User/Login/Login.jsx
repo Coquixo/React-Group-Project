@@ -138,7 +138,7 @@ const Login = () => {
           name="email"
           placeholder="example@gmail.com"
           onChange={(e) => inputHandler(e)}
-          onBlur={(e) => errorHandler(e)}
+          onBlur={(e) => errorHandler(e.target.name, e.target.value, "email")}
           className={
             userError.emailError === ""
               ? "inputLogin"
