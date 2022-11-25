@@ -82,7 +82,7 @@ const Register = () => {
             className="registerInputs"
             placeholder="Name"
             required
-            onChange={inputHandler}
+            onChange={inputHandler}   
             onInput={(e) => errorHandler(e.target.name, e.target.value, "text")}
           />
           <div className="errorInput">{userError.nameError}</div>

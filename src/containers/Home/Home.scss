@@ -1,41 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.containerDesign {
+  display: flex;
+  width: 100vw;
+}
 
 .homeDesign {
-
-    height: 90vh;
-    width: 100vw;
-
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-
-    color: white;
-    background-color: rgb(38 38 38);
+  height: 100vh;
+  width: 80vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+//   margin: 1em;
+  color: white;
+  background-color: rgb(38 38 38);
 }
 
 .movieShow {
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 1em;
-
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // margin: 1em ;
+  // padding: 1em;
 }
 
 .moviePic {
-
-    height: 13em;
-    width: 7em;
-    transition: 0.3s;
-
+  height: 13em;
+  width: 7em;
+  transition: 0.3s;
 }
 
-.moviePic:hover{
-    height: 15em;
-    width: 9em;
-    transition: 0.3s;
-   
+.moviePic:hover {
+  height: 15em;
+  width: 9em;
+  transition: 0.3s;
 }
