@@ -8,6 +8,9 @@ import { loginUser } from "../../../services/apiCalls";
 import { errorCheck } from "../../../services/errorManage";
 import "./Login.scss";
 
+import EyeIcon from "../../../components/icons/EyeIcon";
+import EyeSlashIcon from "../../../components/icons/EyeSlashIcon";
+
 const Login = () => {
   const dataBase = "http://localhost:3000/";
 
@@ -17,6 +20,8 @@ const Login = () => {
   const dispatch = useDispatch(); //Esto me permitirá usar el dispatch en cualquier momento en la Aplicacion para despachar ACCIONES de REDUX
 
   const userReduxCredentials = useSelector(userData); //Aqui estamos guardando el ALMACEN de REDUX en userReduxCredentials.
+
+
 
   //Hooks:
   //Hooks de credenciales de usuario:
@@ -29,6 +34,9 @@ const Login = () => {
     emailError: "",
     passwordError: "",
   });
+
+  //HookPassword
+  const [passwordShown, setPasswordShown] = useState(false);
 
   // HANDLERS
   const inputHandler = (e) => {
@@ -129,38 +137,56 @@ const Login = () => {
   //     }, 1000);
 
   // }
+
+  //PASSWORD-EYE
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown);
+  };
+
   return (
     <div className="loginDesign">
       <div className="inputsContainer">
         <h1 className="">PLEASE ENTER YOUR DETAILS TO LOGIN</h1>
-        <input
-          type="email"
-          name="email"
-          placeholder="example@gmail.com"
-          onChange={(e) => inputHandler(e)}
-          onBlur={(e) => errorHandler(e.target.name, e.target.value, "email")}
-          className={
-            userError.emailError === ""
-              ? "inputLogin"
-              : "inputLogin inputLoginError"
-          }
-        />
-        <div className="errorMessage">{userError.emailError}</div>
-        <input
-          type="password"
-          name="password"
-          placeholder="password"
-          onChange={(e) => inputHandler(e)}
-          onBlur={(e) =>
-            errorHandler(e.target.name, e.target.value, "password")
-          }
-          className={
-            userError.passwordError === ""
-              ? "inputLogin"
-              : "inputLogin inputLoginError"
-          }
-        />
+        <div>
+          <input
+            type="email"
+            name="email"
+            placeholder="example@gmail.com"
+            onChange={(e) => inputHandler(e)}
+            onBlur={(e) => errorHandler(e.target.name, e.target.value, "email")}
+            className={
+              userError.emailError === ""
+                ? "inputLogin"
+                : "inputLogin inputLoginError"
+            }
+          />
+          <div className="errorMessage">{userError.emailError}</div>
+        </div>
+        <div className="inputLogin">
+          <input
+            type={passwordShown ? "text" : "password"}
+            name="password"
+            placeholder="password"
+            onChange={(e) => inputHandler(e)}
+            onBlur={(e) =>
+              errorHandler(e.target.name, e.target.value, "password")
+            }
+            className={
+              userError.passwordError === ""
+                ? "inputDesign"
+                : "inputDesign inputLoginError"
+            }
+
+          />
+          {passwordShown ? (
+            <EyeSlashIcon classes="eyeIcon" onClick={togglePassword} />
+          ) : (
+            <EyeIcon classes="eyeIcon" onClick={togglePassword} />
+          )}
+          
+        </div>
         <div className="errorMessage">{userError.passwordError}</div>
+
       </div>
       <div onClick={() => logMe()} className="buttonDesign">
         Login me!

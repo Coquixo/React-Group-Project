@@ -53,6 +53,7 @@
   height: 5vh;
   display: flex;
   text-align: center;
+  align-items: center;
   border-top-right-radius: 0.8em;
   border-bottom-left-radius: 0.8em;
   border: 2px solid white;
@@ -72,4 +73,26 @@
 .errorMessage {
   color: red;
   font-size: small;
+}
+
+.eyeIcon {
+  justify-self: end;
+  margin-right: 1em;
+  fill: white;
+  cursor: pointer;
+  user-select: none;
+}
+
+
+.inputDesign {
+  text-align: center;
+  background: none;
+  border: none;
+  width: 100%;
+}
+
+
+
+.inputDesign::placeholder{
+  color: rgb(255, 255, 255);
 }
