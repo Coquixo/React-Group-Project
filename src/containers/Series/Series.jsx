@@ -18,6 +18,7 @@ const Serie = () => {
 
 
     const returnHome = () => {
+        console.log(selectedSerie);
         navigate("/");
     }
 

@@ -4,6 +4,7 @@ import { bringMovies } from "../../services/apiCalls";
 import { useSelector, useDispatch } from "react-redux";
 import { userData } from "../User/userSlice";
 import { filmData, addFilm } from "../Films/filmsSlice";
+import { serieData, addSerie } from "../Series/seriesSlice";
 
 import "./Home.scss";
 import Menu from "../../components/Menu/Menu";
@@ -17,7 +18,7 @@ const Home = () => {
 
   return (
     // <ShowMovies />
-    <ShowSeries />
+     <ShowSeries />
     
   );
 }

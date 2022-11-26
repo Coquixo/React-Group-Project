@@ -34,6 +34,7 @@ const ShowSeries = () => {
         setTimeout(() => {
             navigate("/serie");
         }, 750);
+        
     };
 
     if (series.length === 0) {
