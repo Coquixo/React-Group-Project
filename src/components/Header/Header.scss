@@ -37,7 +37,31 @@
     font-size: 1.91em;
 
 }
+.divInputDesign{
+    background-color: rgb(156, 156, 156);
+    margin: 0.3em;
+    width: 14vw;
+    height: 5vh;
+}
 
+.inputDesign {
+    margin: 0.3em;
+    width: 40vw;
+    height: 5vh;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    border-top-right-radius: 0.8em;
+    border-bottom-left-radius: 0.8em;
+    border: 2px solid white;
+    background-color: rgb(156, 156, 156);
+    color: white;
+    font-family: Georgia, "Times New Roman", Times, serif;
+  }
+  
+  .inputDesign::placeholder {
+    color: rgb(255, 255, 255);
+  }
 
 
 

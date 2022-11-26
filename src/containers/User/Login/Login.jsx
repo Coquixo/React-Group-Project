@@ -75,7 +75,7 @@ const Login = () => {
   useEffect(() => {
     console.log(userReduxCredentials);
 
-    if (userReduxCredentials?.token !== "") {
+    if (userReduxCredentials?.credentials?.token !== undefined) {
       //Esto quiere decir, que SI que TIENES TOKEN, por lo tanto, navegaremos automaticamente fuera de Login.(Iremos a HOME)
       navigate("/"); // ESTO MISMO, TAMBIEN PODEMOS APLICARLO A LA RESTRICCION SI ALGUIEN QUIERE ENTRAR EN ADMIN
     }
@@ -83,7 +83,19 @@ const Login = () => {
 
   const logMe = () => {
     console.log("LOGEADO!!");
-    navigate("/"); //De momento solo va a home.
+    //Hardcodeamos un token fingiendo que el backend nos ha devuelto el susodicho
+    let fakeHardCredentials = {
+      token: "secreto",
+      name: "Piwi",
+      email: "piwi@test.com",
+      phone: "666555444"
+    }
+
+    dispatch(login({ credentials: fakeHardCredentials }));
+
+    setTimeout(() => {
+      navigate("/");
+    }, 1000);//De momento solo va a home.
   };
 
   //ESTO HAY QUE MODIFICARLO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -183,7 +195,7 @@ const Login = () => {
           ) : (
             <EyeIcon classes="eyeIcon" onClick={togglePassword} />
           )}
-          
+
         </div>
         <div className="errorMessage">{userError.passwordError}</div>
 
