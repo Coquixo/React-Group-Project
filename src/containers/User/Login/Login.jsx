@@ -21,8 +21,6 @@ const Login = () => {
 
   const userReduxCredentials = useSelector(userData); //Aqui estamos guardando el ALMACEN de REDUX en userReduxCredentials.
 
-
-
   //Hooks:
   //Hooks de credenciales de usuario:
   const [user, setUser] = useState({
@@ -88,14 +86,14 @@ const Login = () => {
       token: "secreto",
       name: "Piwi",
       email: "piwi@test.com",
-      phone: "666555444"
-    }
+      phone: "666555444",
+    };
 
     dispatch(login({ credentials: fakeHardCredentials }));
 
     setTimeout(() => {
       navigate("/");
-    }, 1000);//De momento solo va a home.
+    }, 1000); //De momento solo va a home.
   };
 
   //ESTO HAY QUE MODIFICARLO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -188,17 +186,14 @@ const Login = () => {
                 ? "inputDesign"
                 : "inputDesign inputLoginError"
             }
-
           />
           {passwordShown ? (
             <EyeSlashIcon classes="eyeIcon" onClick={togglePassword} />
           ) : (
             <EyeIcon classes="eyeIcon" onClick={togglePassword} />
           )}
-
         </div>
         <div className="errorMessage">{userError.passwordError}</div>
-
       </div>
       <div onClick={() => logMe()} className="buttonDesign">
         Login me!

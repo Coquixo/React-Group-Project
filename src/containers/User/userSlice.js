@@ -30,5 +30,5 @@ export const { login, userout } = userSlice.actions;//Este login que exportamos 
 // los componentes conectados a este reducer, para saber sus credenciales
 
 export const userData = (state) => state.user;
-
+  
 export default userSlice.reducer;

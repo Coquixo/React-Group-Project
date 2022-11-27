@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { errorCheck } from "../../../services/errorManage";
 import { useNavigate } from "react-router-dom";
-import "./Register.scss";
+import "./userSettings.scss";
 import EyeIcon from "../../../components/icons/EyeIcon";
 import EyeSlashIcon from "../../../components/icons/EyeSlashIcon";
+import "./userSettings.scss"
 
-const Register = () => {
+const UserSettings = () => {
   //Hooks
   const [user, setUser] = useState({
-    name: "",
-    surname: "",
-    email: "",
-    age: "",
-    phone: "",
-    adress: "",
-    password: "",
-    password2: "",
+    name: "aqui va anterior nombre",
+    surname: "aqui va anterior apellido",
+    email: "aqui va anterior email",
+    age: "aqui va anterior edad",
+    phone: "aqui va anterior telefono",
+    adress: "aqui va anterior calle",
+    password: "Aqui no tiene que ir nada, no deberian te deberia de traer la contraseña",
+    password2: "Lo mismo que arriba",
   });
 
   const [userError, setUserError] = useState({
@@ -36,10 +37,6 @@ const Register = () => {
   const navigate = useNavigate();
 
   const inputHandler = (e) => {
-    // setUser((prevState) => ({
-    //     ...prevState,
-    //     [e.target.name]: e.target.value
-    // }));
     setUser({
       ...user,
       [e.target.name]: e.target.value,
@@ -47,15 +44,14 @@ const Register = () => {
   };
 
   useEffect(() => {
-    const userIsNotFilled = Object.values(user).some((property) => {
-      return property === "";
-    });
-    setDisabled(userIsNotFilled || !acceptedTerms);
-  }, [user, acceptedTerms]);
+    setDisabled(!acceptedTerms);
+  }, [acceptedTerms]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     navigate("/login");
+
+    //Aqui en principio tendría que enviar el put hacia la api con axios
   };
 
   const errorHandler = (field, value, type) => {
@@ -72,33 +68,38 @@ const Register = () => {
   };
 
   return (
-    <div className="registerDesign">
+    <div className="updateDesign">
+      <h1 className="">Update your credentials</h1>
       <div className="formSquare">
-        <h1 className="">WELCOME</h1>
         <form onSubmit={handleSubmit}>
+          <p>Name:</p>
           <input
             type="text"
             name="name"
-            className="registerInputs"
+            value={user.name}
+            className="updateInputs"
             placeholder="Name"
-            required
             onChange={inputHandler}
             onInput={(e) => errorHandler(e.target.name, e.target.value, "text")}
           />
+          <p>Surname:</p>
           <div className="errorInput">{userError.nameError}</div>
           <input
             type="text"
             name="surname"
-            className="registerInputs"
+            value={user.surname}
+            className="updateInputs"
             placeholder="Surname"
             onChange={inputHandler}
             onInput={(e) => errorHandler(e.target.name, e.target.value, "text")}
           />
           <div className="errorInput">{userError.surnameError}</div>
+          <p>Mail:</p>
           <input
             type="text"
             name="email"
-            className="registerInputs"
+            value={user.email}
+            className="updateInputs"
             placeholder="Email"
             onChange={inputHandler}
             onInput={(e) =>
@@ -106,21 +107,12 @@ const Register = () => {
             }
           />
           <div className="errorInput">{userError.emailError}</div>
-          <input
-            type="number"
-            min="0"
-            max="150"
-            name="age"
-            className="registerInputs"
-            placeholder="Age"
-            onChange={inputHandler}
-            onInput={(e) => errorHandler(e.target.name, e.target.value, "age")}
-          />
-          <div className="errorInput">{userError.ageError}</div>
+          <p>Phone:</p>
           <input
             type="text"
             name="phone"
-            className="registerInputs"
+            className="updateInputs"
+            value={user.phone}
             placeholder="Phone Number"
             onChange={inputHandler}
             onInput={(e) =>
@@ -128,10 +120,12 @@ const Register = () => {
             }
           />
           <div className="errorInput">{userError.phoneError}</div>
+          <p>Adress:</p>
           <input
             type="text"
             name="adress"
-            className="registerInputs"
+            className="updateInputs"
+            value={user.adress}
             placeholder="Adress"
             onChange={inputHandler}
             onInput={(e) =>
@@ -139,11 +133,13 @@ const Register = () => {
             }
           />
           <div className="errorInput">{userError.adressError}</div>
-          <div className="registerInputs inputContainer">
+          <p>Password:</p>
+          <div className="updateInputs inputContainer">
             <input
               className="inputDesign passwordInput"
               type={passwordShown ? "text" : "password"}
               name="password"
+              value={user.password}
               placeholder="Password"
               onChange={inputHandler}
               onInput={(e) =>
@@ -157,10 +153,12 @@ const Register = () => {
             )}
           </div>
           <div className="errorInput">{userError.passwordError}</div>
+          <p>Repeat Your Password:</p>
           <input
             type="password"
             name="password2"
-            className="registerInputs"
+            className="updateInputs"
+            value={user.password2}
             placeholder="Repeat your password"
             onChange={inputHandler}
             onInput={(e) =>
@@ -172,19 +170,19 @@ const Register = () => {
             type="checkbox"
             defaultChecked={acceptedTerms}
             onChange={() => setAcceptedTerms(!acceptedTerms)}
-          />{" "}
-          He leido la <i>politica</i> de <i>privacidad</i> de la empresa{" "}
+          />
+          I'm sure that i want to change that
           <br></br>
           <input
             type="submit"
-            value="Sign In"
+            value="Update Now!"
             className="submitButton"
             disabled={disabled}
           />
         </form>
       </div>
-    </div>
+    </div >
   );
 };
 
-export default Register;
+export default UserSettings;

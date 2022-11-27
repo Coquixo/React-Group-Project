@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { userData, userout } from "../../containers/User/userSlice";
+import { userData } from "../../containers/User/userSlice";
 import { addSearch } from "../../containers/Films/filmsSlice";
 import './Header.scss'
 import { useNavigate } from 'react-router-dom';
@@ -27,19 +27,6 @@ const Header = () => {
 
         setCriteria(e.target.value);
     }
-
-    //Funciones
-
-    const logout = () => {
-
-        //aqui borraremos el token y haremos log out :)
-        dispatch(userout({ credentials: {} }))
-
-        //inmediatamente despues del logout, conduzco al usuario a home.
-        return navigate("/");
-
-    }
-
 
     //Life-cycle functions
 
@@ -69,7 +56,6 @@ const Header = () => {
                 </div>
                 <div onClick={() => navigate("/profile")} className="linkDesign">{userReduxCredentials?.credentials?.name}</div>
                 <div onClick={() => navigate("/")} className="linkDesign">Home</div>
-                <div onClick={() => logout()} className="linkDesign">Logout</div>
             </div>
         )
     } else {
