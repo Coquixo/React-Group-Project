@@ -8,6 +8,7 @@ import Login from "./containers/User/Login/Login";
 import Register from "./containers/User/Register/Register";
 import Film from "./containers/Films/Films";
 import Serie from "./containers/Series/Series";
+import Profile from "./containers/User/Profile/Profile";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/film" element={<Film />} />
           <Route path="/serie" element={<Serie />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
     </div>
