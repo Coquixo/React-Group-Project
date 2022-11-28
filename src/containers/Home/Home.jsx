@@ -7,6 +7,7 @@ import { filmData, addFilm } from "../Films/filmsSlice";
 import { serieData, addSerie } from "../Series/seriesSlice";
 
 import "./Home.scss";
+import SearchBar from "../../components/SearchBar/SearchBar";
 
 
 const Home = () => {
@@ -48,6 +49,8 @@ const Home = () => {
 
 
       <div className="containerDesign">
+
+        <SearchBar />
         <div className="homeDesign">
           {movies.map((movie) => {
             return (

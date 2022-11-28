@@ -1,76 +1,71 @@
 .headerDesign {
-    height: 10vh; //Le damos un 20x100
-    width: 100vw;
+  height: 10vh; //Le damos un 20x100
+  width: 100vw;
 
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 
-
-    background-color: rgb(0, 0, 0);
+  background-color: rgb(0, 0, 0);
 }
 
 .linkDesign {
-    opacity: 85%;
-    font-size: 1.9em;
-    background-color: #0b0c0ee1;
-    color: rgb(255, 255, 255);
-    box-shadow: 2px 2px 2px #ffffff80, 5px 5px 10px #ffffff80,
-        2px 2px 10px #ffffff80, 2px 2px 3px #ffffff80, inset 2px 2px 10px #00000080,
-        inset 2px 2px 10px #ffffff80, inset 2px 2px 10px #ffffff80,
-        inset 2px 2px 10px #ffffff80;
-    border-radius: 12px;
-    padding: 0.3em;
-    margin: 0 0.5em 0 0;
-    
-    animation: animate 2s linear infinite;
-    text-shadow: 0 0 50px #0072ff, 0 0 100px #0072ff, 0 0 150px #0072ff,
-        0 0 200px #0072ff;
-    cursor: pointer;
-    font-family:monospace;
+  opacity: 85%;
+  font-size: 1.9em;
+  background-color: #0b0c0ee1;
+  color: rgb(255, 255, 255);
+  box-shadow: 2px 2px 2px #ffffff80, 5px 5px 10px #ffffff80,
+    2px 2px 10px #ffffff80, 2px 2px 3px #ffffff80, inset 2px 2px 10px #00000080,
+    inset 2px 2px 10px #ffffff80, inset 2px 2px 10px #ffffff80,
+    inset 2px 2px 10px #ffffff80;
+  border-radius: 12px;
+  padding: 0.3em;
+  margin: 0 0.5em 0 0;
 
+  animation: animate 2s linear infinite;
+  text-shadow: 0 0 50px #0072ff, 0 0 100px #0072ff, 0 0 150px #0072ff,
+    0 0 200px #0072ff;
+  cursor: pointer;
+  font-family: monospace;
 }
 
-.linkDesign:hover{
-    color: aqua;
-    opacity: 100%;
-    font-size: 1.91em;
-
+.linkDesign:hover {
+  color: aqua;
+  opacity: 100%;
+  font-size: 1.91em;
 }
-.divInputDesign{
-    background-color: rgb(156, 156, 156);
-    margin: 0.3em;
-    width: 14vw;
-    height: 5vh;
-}
+// .divInputDesign {
+//   background-color: rgb(156, 156, 156);
+//   margin: 0.3em;
+//   width: 14vw;
+//   height: 5vh;
+// }
 
 .inputDesign {
-    margin: 0.3em;
-    width: 40vw;
-    height: 5vh;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    border-top-right-radius: 0.8em;
-    border-bottom-left-radius: 0.8em;
-    border: 2px solid white;
-    background-color: rgb(156, 156, 156);
-    color: white;
-    font-family: Georgia, "Times New Roman", Times, serif;
-  }
-  
-  .inputDesign::placeholder {
-    color: rgb(255, 255, 255);
-  }
+  margin: 0.3em;
+  width: 40vw;
+  height: 5vh;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  border-top-right-radius: 0.8em;
+  border-bottom-left-radius: 0.8em;
+  border: 2px solid white;
+  background-color: rgb(156, 156, 156);
+  color: white;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
 
-
+.inputDesign::placeholder {
+  color: rgb(255, 255, 255);
+}
 
 @keyframes animate {
-    from {
-        filter: hue-rotate(0deg);
-    }
+  from {
+    filter: hue-rotate(0deg);
+  }
 
-    to {
-        filter: hue-rotate(360deg);
-    }
+  to {
+    filter: hue-rotate(360deg);
+  }
 }

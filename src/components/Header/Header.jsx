@@ -19,41 +19,41 @@ const Header = () => {
 
     //Hooks
 
-    const [criteria, setCriteria] = useState('');
+    // const [criteria, setCriteria] = useState('');
 
     //Handlers
 
-    const criteriaHandler = (e) => {
+    // const criteriaHandler = (e) => {
 
-        setCriteria(e.target.value);
-    }
+    //     setCriteria(e.target.value);
+    // }
 
     //Life-cycle functions
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        if (criteria !== '') {
-            //llamamos a la función de búsqueda....
+    //     if (criteria !== '') {
+    //         //llamamos a la función de búsqueda....
 
-            searchMovies(criteria)
-                .then(result => {
-                    console.log("que ha pasado???? ", result);
+    //         searchMovies(criteria)
+    //             .then(result => {
+    //                 console.log("que ha pasado???? ", result);
 
-                    //Ahora que tengo las películas...las guardo en redux....
-                    dispatch(addSearch({ search: result }))
-                })
-                .catch(error => console.log((error)));
-        }
-    }, [criteria]);
+    //                 //Ahora que tengo las películas...las guardo en redux....
+    //                 dispatch(addSearch({ search: result }))
+    //             })
+    //             .catch(error => console.log((error)));
+    //     }
+    // }, [criteria]);
 
     if (userReduxCredentials?.credentials?.token !== undefined) {
         //Esta comparativa viene a decirnos que SI tenemos un token
 
         return (
             <div className='headerDesign'>
-                <div className='divInputDesign'>
+                {/* <div className='divInputDesign'>
                     <input className="inputDesign" type="text" name="criteria" placeholder="search a film" onChange={(e) => criteriaHandler(e)} />
-                </div>
+                </div> */}
                 <div onClick={() => navigate("/profile")} className="linkDesign">{userReduxCredentials?.credentials?.name}</div>
                 <div onClick={() => navigate("/")} className="linkDesign">Home</div>
             </div>
@@ -63,9 +63,9 @@ const Header = () => {
 
         return (
             <div className='headerDesign'>
-                <div className='divInputDesign'>
+                {/* <div className='divInputDesign'>
                     <input className="inputDesign" type="text" name="criteria" placeholder="search a film" onChange={(e) => criteriaHandler(e)} />
-                </div>
+                </div> */}
 
                 <div onClick={() => navigate('/login')} className="linkDesign">Login</div>
                 <div onClick={() => navigate('/register')} className="linkDesign">Register</div>
