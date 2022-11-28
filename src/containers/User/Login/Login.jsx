@@ -156,7 +156,7 @@ const Login = () => {
   return (
     <div className="loginDesign">
       <div className="inputsContainer">
-        <h1 className="">PLEASE ENTER YOUR DETAILS TO LOGIN</h1>
+        <h1 className="loginTittleDesign">PLEASE ENTER YOUR DETAILS TO LOGIN</h1>
         <div>
           <input
             type="email"

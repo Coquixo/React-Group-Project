@@ -73,9 +73,9 @@ const Register = () => {
 
   return (
     <div className="registerDesign">
-      <div className="formSquare">
-        <h1 className="">WELCOME</h1>
-        <form onSubmit={handleSubmit}>
+      <div className="formRegisterSquare">
+        <h1 className="registerTittleDesign">WELCOME</h1>
+        <form onSubmit={handleSubmit} >
           <input
             type="text"
             name="name"
@@ -168,12 +168,18 @@ const Register = () => {
             }
           />
           <div className="errorInput">{userError.password2Error}</div>
-          <input
-            type="checkbox"
-            defaultChecked={acceptedTerms}
-            onChange={() => setAcceptedTerms(!acceptedTerms)}
-          />{" "}
-          He leido la <i>politica</i> de <i>privacidad</i> de la empresa{" "}
+          <div className="registerAdviseDesign">
+
+            <input
+              type="checkbox"
+              defaultChecked={acceptedTerms}
+              onChange={() => setAcceptedTerms(!acceptedTerms)}
+            />
+            <p>
+
+              He leido la <i>politica</i> de <i>privacidad</i> de la empresa{" "}
+            </p>
+          </div>
           <br></br>
           <input
             type="submit"

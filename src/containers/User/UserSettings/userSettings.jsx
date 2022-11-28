@@ -68,11 +68,15 @@ const UserSettings = () => {
   };
 
   return (
-    <div className="updateDesign">
-      <h1 className="">Update your credentials</h1>
-      <div className="formSquare">
-        <form onSubmit={handleSubmit}>
-          <p>Name:</p>
+    <div className="settingsViewDesign">
+
+
+      <div className="settingsBoxDesign">
+
+
+        <h1 className="updateTittleDesign">Update your credentials</h1>
+        <form onSubmit={handleSubmit} className="formSquare">
+          {/* <p>Name:</p> */}
           <input
             type="text"
             name="name"
@@ -82,7 +86,7 @@ const UserSettings = () => {
             onChange={inputHandler}
             onInput={(e) => errorHandler(e.target.name, e.target.value, "text")}
           />
-          <p>Surname:</p>
+          {/* <p>Surname:</p> */}
           <div className="errorInput">{userError.nameError}</div>
           <input
             type="text"
@@ -94,7 +98,7 @@ const UserSettings = () => {
             onInput={(e) => errorHandler(e.target.name, e.target.value, "text")}
           />
           <div className="errorInput">{userError.surnameError}</div>
-          <p>Mail:</p>
+          {/* <p>Mail:</p> */}
           <input
             type="text"
             name="email"
@@ -107,7 +111,7 @@ const UserSettings = () => {
             }
           />
           <div className="errorInput">{userError.emailError}</div>
-          <p>Phone:</p>
+          {/* <p>Phone:</p> */}
           <input
             type="text"
             name="phone"
@@ -120,7 +124,7 @@ const UserSettings = () => {
             }
           />
           <div className="errorInput">{userError.phoneError}</div>
-          <p>Adress:</p>
+          {/* <p>Adress:</p> */}
           <input
             type="text"
             name="adress"
@@ -133,7 +137,7 @@ const UserSettings = () => {
             }
           />
           <div className="errorInput">{userError.adressError}</div>
-          <p>Password:</p>
+          {/* <p>Password:</p> */}
           <div className="updateInputs inputContainer">
             <input
               className="inputDesign passwordInput"
@@ -166,12 +170,18 @@ const UserSettings = () => {
             }
           />
           <div className="errorInput">{userError.password2Error}</div>
-          <input
-            type="checkbox"
-            defaultChecked={acceptedTerms}
-            onChange={() => setAcceptedTerms(!acceptedTerms)}
-          />
-          I'm sure that i want to change that
+          <div className="adviseDesign">
+            <input
+              type="checkbox"
+              defaultChecked={acceptedTerms}
+              onChange={() => setAcceptedTerms(!acceptedTerms)}
+            />
+
+            <p>
+
+              I'm sure that i want to change that
+            </p>
+          </div>
           <br></br>
           <input
             type="submit"
@@ -180,8 +190,15 @@ const UserSettings = () => {
             disabled={disabled}
           />
         </form>
+      </div >
+      <div className="settingsBoxDesign">
+        <div className="formSquare"></div>
+
+
       </div>
-    </div >
+    </div>
+
+
   );
 };
 
