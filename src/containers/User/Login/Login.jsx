@@ -60,9 +60,7 @@ const Login = () => {
 
   const errorHandler = (field, value, type) => {
     let error = "";
-
     error = errorCheck(value, type);
-
     setUserError((prevState) => ({
       ...prevState,
       [field + "Error"]: error,
@@ -93,7 +91,7 @@ const Login = () => {
 
     setTimeout(() => {
       navigate("/");
-    }, 1000); //De momento solo va a home.
+    }, 500); //De momento solo va a home.
   };
 
   //ESTO HAY QUE MODIFICARLO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -163,7 +161,7 @@ const Login = () => {
             name="email"
             placeholder="example@gmail.com"
             onChange={(e) => inputHandler(e)}
-            onBlur={(e) => errorHandler(e.target.name, e.target.value, "email")}
+            onInput={(e) => errorHandler(e.target.name, e.target.value, "email")}
             className={
               userError.emailError === ""
                 ? "inputLogin"
@@ -178,7 +176,7 @@ const Login = () => {
             name="password"
             placeholder="password"
             onChange={(e) => inputHandler(e)}
-            onBlur={(e) =>
+            onInput={(e) =>
               errorHandler(e.target.name, e.target.value, "password")
             }
             className={
