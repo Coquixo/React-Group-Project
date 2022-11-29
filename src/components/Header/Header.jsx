@@ -46,7 +46,7 @@ const Header = () => {
     //     }
     // }, [criteria]);
 
-    if (userReduxCredentials?.credentials?.token !== undefined) {
+    if (userReduxCredentials?.credentials?.jwt !== undefined) {
         //Esta comparativa viene a decirnos que SI tenemos un token
 
         return (

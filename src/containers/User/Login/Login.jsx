@@ -13,10 +13,6 @@ import EyeSlashIcon from "../../../components/icons/EyeSlashIcon";
 
 
 
-// const cors = require('cors');
-// const app = express();
-// app.use(cors());
-
 const Login = () => {
 
 
@@ -79,7 +75,7 @@ const Login = () => {
   useEffect(() => {
     console.log(userReduxCredentials);
 
-    if (userReduxCredentials?.credentials?.token !== undefined) {
+    if (userReduxCredentials?.credentials?.jwt !== undefined) {
       //Esto quiere decir, que SI que TIENES TOKEN, por lo tanto, navegaremos automaticamente fuera de Login.(Iremos a HOME)
       navigate("/"); // ESTO MISMO, TAMBIEN PODEMOS APLICARLO A LA RESTRICCION SI ALGUIEN QUIERE ENTRAR EN ADMIN
     }
@@ -103,25 +99,27 @@ const Login = () => {
   // };
 
 
-  const logMe = async () => {
+  const logMe = async (user) => {
     try {
 
-      let body = {
+
+
+      let resultado = await axios.post(dataBase + "auth/login", {
         email: user.email,
         password: user.password
-      }
+      });
+      // return resultado.data;
 
-      let resultado = await axios.post(dataBase + "auth/login", body);
-
-      if (resultado.message === "Password or email is incorrect") {//Aqui estoy intentando compararlo con la base de datos
+      if (resultado.data.message === "Password or email is incorrect") {//Aqui estoy intentando compararlo con la base de datos
         console.error("Usuario o contraseña incorrecto")
       } else {
-        
 
-        dispatch(login({ credentials: userReduxCredentials }));
-        
+
+        dispatch(login({ ...user,credentials: resultado.data }));
+        //WEste userReduxCredentials me viene vacio, no funciona
         console.log("USERREDUZX", userReduxCredentials);
-        console.log("Este es el mensaje",resultado.message);
+        //Este resultado.data me viene con el message y el jwt, si que funciona
+        console.log("Este es el mensaje", resultado.data);
 
         setTimeout(() => {
 
@@ -130,7 +128,8 @@ const Login = () => {
       }
 
     } catch (error) {
-
+      console.log("CATCHERRORRRR", userReduxCredentials);
+      console.log("Este es el mensaje");
       console.log(error)
 
     }
@@ -198,7 +197,7 @@ const Login = () => {
         </div>
         <div className="errorMessage">{userError.passwordError}</div>
       </div>
-      <div onClick={() => logMe()} className="buttonDesign">
+      <div onClick={() => logMe(user)} className="buttonDesign">
         Login me!
       </div>
     </div>
