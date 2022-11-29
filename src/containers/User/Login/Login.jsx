@@ -116,15 +116,17 @@ const Login = () => {
       if (resultado.message === "Password or email is incorrect") {//Aqui estoy intentando compararlo con la base de datos
         console.error("Usuario o contraseña incorrecto")
       } else {
+        
 
         dispatch(login({ credentials: userReduxCredentials }));
         
         console.log("USERREDUZX", userReduxCredentials);
+        console.log("Este es el mensaje",resultado.message);
 
         setTimeout(() => {
 
           navigate("/profile");
-        }, 1500);
+        }, 500);
       }
 
     } catch (error) {

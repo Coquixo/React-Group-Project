@@ -8,7 +8,7 @@ export const loginUser = async (user) => {//el user se lo he metido cuando he im
 };
 
 export const registerUser = async (user) => {
-    let res = await axios.post("ednpoint del alumno", user)
+    let res = await axios.post(dataBase +"/auth/register", user)
     return res;
 };
 
