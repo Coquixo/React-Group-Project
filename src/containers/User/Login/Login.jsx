@@ -11,8 +11,16 @@ import "./Login.scss";
 import EyeIcon from "../../../components/icons/EyeIcon";
 import EyeSlashIcon from "../../../components/icons/EyeSlashIcon";
 
+
+
+// const cors = require('cors');
+// const app = express();
+// app.use(cors());
+
 const Login = () => {
-  const dataBase = "http://localhost:3000/";
+
+
+  const dataBase = "http://localhost:3001/";
 
   //Instanciamos los métodos desestructurados importados al inicio del archivo:
   const navigate = useNavigate(); //Necesario para navegar
@@ -77,61 +85,56 @@ const Login = () => {
     }
   }, []);
 
-  const logMe = () => {
-    console.log("LOGEADO!!");
-    //Hardcodeamos un token fingiendo que el backend nos ha devuelto el susodicho
-    let fakeHardCredentials = {
-      token: "secreto",
-      name: "Piwi",
-      email: "piwi@test.com",
-      phone: "666555444",
-    };
+  // const logMe = () => {
+  //   console.log("LOGEADO!!");
+  //   //Hardcodeamos un token fingiendo que el backend nos ha devuelto el susodicho
+  //   // let fakeHardCredentials = {
+  //   //   token: "secreto",
+  //   //   name: "Piwi",
+  //   //   email: "piwi@test.com",
+  //   //   phone: "666555444",
+  //   // };
 
-    dispatch(login({ credentials: fakeHardCredentials }));
+  //   // dispatch(login({ credentials: fakeHardCredentials }));
 
-    setTimeout(() => {
-      navigate("/");
-    }, 500); //De momento solo va a home.
+  //   // setTimeout(() => {
+  //   //   navigate("/");
+  //   // }, 500); //De momento solo va a home.
+  // };
+
+
+  const logMe = async () => {
+    try {
+
+      let body = {
+        email: user.email,
+        password: user.password
+      }
+
+      let resultado = await axios.post(dataBase + "auth/login", body);
+
+      if (resultado.message === "Password or email is incorrect") {//Aqui estoy intentando compararlo con la base de datos
+        console.error("Usuario o contraseña incorrecto")
+      } else {
+
+        dispatch(login({ credentials: userReduxCredentials }));
+        
+        console.log("USERREDUZX", userReduxCredentials);
+
+        setTimeout(() => {
+
+          navigate("/profile");
+        }, 1500);
+      }
+
+    } catch (error) {
+
+      console.log(error)
+
+    }
+
   };
 
-  //ESTO HAY QUE MODIFICARLO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  //Creamos la funcion logme, que usaremos al Clickar el boton.
-  //Funcion Local de login
-  // const logMe = async (props) => {
-  //     try {
-
-  //         let body = {
-  //             email: user.email,
-  //             password: user.password
-  //         }
-
-  //         let resultado = await axios.post(dataBase + "auth/login", body);
-
-  //         if (resultado.message === "Password or email is incorrect") {//Aqui estoy intentando compararlo con la base de datos
-  //             setMsgError2("Usuario o contraseña incorrecto")
-  //         } else {
-
-  //             props.dispatch({ type: login, payload: resultado.data });//MODIFICAR ESTO!
-
-  //             setTimeout(() => {
-
-  //                 navigate("/");
-  //             }, 1500);
-  //         }
-
-  //     } catch (error) {
-
-  //         console.log(error)
-
-  //     }
-
-  // };
-  //Empieza el proceso de login...// DE MOMENTO LO DEJO COMENTADO TODO ESTO
-  // loginUser(user);//Le pasamos el Hook que tiene los datos de usuario
-  // if(email === state.user.mail){data =>{//Si ecuentra datos, entonces haremos esta funcion...
-  //     console.log(data)
-  // }}
-  // else{console.log("Ha ocurrido un problema")};
 
   //Una vez que el backend nos da el Token, que tenemos que hacer? GUARDARLO en REDUX(Para que el Header, que tb esta conectado a REDUX, lo lea)
   //COMO lo GUARDAMOS? con el DISPATCH:
