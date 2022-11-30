@@ -28,7 +28,7 @@ const Film = () => {
                 {selectedFilm?.title}
                 <img className="filmPic" src={"https://image.tmdb.org/t/p/w200/" + selectedFilm?.poster_path} />
 
-                {credentials?.credentials?.token !== undefined &&
+                {credentials?.credentials?.jwt !== undefined &&
 
                     <div onClick={() => watchMe()} className='buttonDesign'>
                         Watch me!

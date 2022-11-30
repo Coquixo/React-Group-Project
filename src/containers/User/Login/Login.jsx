@@ -115,11 +115,12 @@ const Login = () => {
       } else {
 
 
-        dispatch(login({ ...user,credentials: resultado.data }));
-        //WEste userReduxCredentials me viene vacio, no funciona
-        console.log("USERREDUZX", userReduxCredentials);
-        //Este resultado.data me viene con el message y el jwt, si que funciona
+        dispatch(login({ credentials: resultado.data }));
+        //Este userReduxCredentials me viene vacio, no funciona
         console.log("Este es el mensaje", resultado.data);
+
+        //Este resultado.data me viene con el message y el jwt, si que funciona
+        console.log("USERREDUZX", userReduxCredentials);
 
         setTimeout(() => {
 
