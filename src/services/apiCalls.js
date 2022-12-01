@@ -16,11 +16,11 @@ export const registerUser = async (user) => {
 
 //Ultimas añadidas(HAY QUE CAMBIAR LOS ENDPOINTS POR LOS DE NUESTRA BASEDEDATOS)
 export const bringMovies = async () => {
-  let res = await movieApi.get(
-    "/movie/top_rated?api_key=210d6a5dd3f16419ce349c9f1b200d6d&language=en-US&page=1"
+  let res = await axios.get(
+    dataBase + "/movies"
   );
-
-  return res.data.results;
+    console.log(res)
+  return res.data;
 };
 
 export const searchMovies = async (criteria) => {

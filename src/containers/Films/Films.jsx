@@ -21,12 +21,12 @@ const Film = () => {
         navigate("/");
     }
 
-    if (selectedFilm?.id !== undefined) {
+    if (selectedFilm?.id_movie !== undefined) {
 
         return (
             <div className="filmDesign">
                 {selectedFilm?.title}
-                <img className="filmPic" src={"https://image.tmdb.org/t/p/w200/" + selectedFilm?.poster_path} />
+                <img className="filmPic" src={selectedFilm?.image} />
 
                 {credentials?.credentials?.jwt !== undefined &&
 

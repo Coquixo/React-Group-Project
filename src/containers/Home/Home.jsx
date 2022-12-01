@@ -56,11 +56,10 @@ const Home = () => {
             return (
               <div
                 onClick={() => clickedMovie(movie)}
-                key={movie.id}
                 className="movieShow">
                 <img
                   className="moviePic"
-                  src={"https://image.tmdb.org/t/p/w200/" + movie.poster_path}
+                  src={movie.image}
                 />
               </div>
             );
