@@ -25,7 +25,6 @@ const Login = () => {
 
   const userReduxCredentials = useSelector(userData); //Aqui estamos guardando el ALMACEN de REDUX en userReduxCredentials.
 
-  //Hooks:
   //Hooks de credenciales de usuario:
   const [user, setUser] = useState({
     email: "",
@@ -48,19 +47,6 @@ const Login = () => {
       [e.target.name]: e.target.value,
     }));
   };
-
-  // const errorHandler = (e) => {
-
-  //     let error = "";
-
-  //     error = errorCheck(e.target.name, e.target.value);
-
-  //     setUserError((prevState) => ({
-  //         ...prevState,
-  //         [e.target.name + 'Error']: error
-  //     }));
-
-  // }
 
   const errorHandler = (field, value, type) => {
     let error = "";

@@ -5,18 +5,21 @@ import "./userSettings.scss";
 import EyeIcon from "../../../components/icons/EyeIcon";
 import EyeSlashIcon from "../../../components/icons/EyeSlashIcon";
 import "./userSettings.scss"
-
+import { useSelector } from "react-redux";
+import { userData } from "../userSlice";
 const UserSettings = () => {
+
+  const userReduxCredentials = useSelector(userData);
   //Hooks
   const [user, setUser] = useState({
-    name: "aqui va anterior nombre",
-    surname: "aqui va anterior apellido",
-    email: "aqui va anterior email",
-    age: "aqui va anterior edad",
-    phone: "aqui va anterior telefono",
-    adress: "aqui va anterior calle",
-    password: "Aqui no tiene que ir nada, no deberian te deberia de traer la contraseña",
-    password2: "Lo mismo que arriba",
+    name: userReduxCredentials?.credentials?.name,
+    surname: userReduxCredentials?.credentials?.surname,
+    email: userReduxCredentials?.credentials?.email,
+    age: userReduxCredentials?.credentials?.age,
+    phone: userReduxCredentials?.credentials?.phone,
+    address: userReduxCredentials?.credentials?.address,
+    password: "",
+    password2: "",
   });
 
   const [userError, setUserError] = useState({
@@ -29,6 +32,8 @@ const UserSettings = () => {
     passwordError: "",
     password2Error: "",
   });
+
+  console.log(userReduxCredentials)
 
   const [disabled, setDisabled] = useState(true);
   const [acceptedTerms, setAcceptedTerms] = useState(false);
@@ -129,7 +134,7 @@ const UserSettings = () => {
             type="text"
             name="adress"
             className="updateInputs"
-            value={user.adress}
+            value={user.address}
             placeholder="Adress"
             onChange={inputHandler}
             onInput={(e) =>
