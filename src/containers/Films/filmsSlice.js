@@ -19,11 +19,17 @@ export const filmSlice = createSlice({
         ...action.payload
       }
     },
+    cleanSearch: (state, action) => {
+      return {
+        ...state,
+        ...action.payload
+      }
+    },
   }
 
 });
 
-export const { addFilm, addSearch } = filmSlice.actions;
+export const { addFilm, addSearch, cleanSearch } = filmSlice.actions;
 
 export const filmData = (state) => state.film;
 
