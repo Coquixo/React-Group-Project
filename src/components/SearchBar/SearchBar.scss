@@ -24,27 +24,30 @@
   text-align: center;
 }
 .input-search {
-  height: 3vh;
-  width: 10vw;
+  height: 2vh;
+  width: 15vw;
   border-style: none;
   padding: 1em;
   margin: 1em;
   // font-size: 18px;
   letter-spacing: 0.5em;
   outline: none;
-  border-radius: 1.5em;
+  border-radius: 0.5em;
   transition: all 0.7s ease-in-out;
-  background-color: #8d878790;
-  padding-right: 40px;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.085) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  padding-right: 1em;
   color: #fff;
   text-align: center;
 }
 .input-search::placeholder {
-  color: rgb(255, 255, 255);
+  color: rgba(255, 255, 255, 0.619);
   font-size: 18px;
   letter-spacing: 2px;
   font-weight: 100;
-  text-align: center;
 }
 .btn-search {
   width: 7vw;
