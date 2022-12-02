@@ -52,6 +52,7 @@ const Home = () => {
       <div className="containerDesign">
 
         <SearchBar />
+        <h1>A un solo click de tener tus pelis favoritas!</h1>
         <div className="homeDesign">
           {filmsFromRdx.details.map((movie) => {
             return (
@@ -81,6 +82,7 @@ const Home = () => {
       <div className="containerDesign">
 
         <SearchBar />
+        <h1 className="titleDesign">A un solo click de tener tus pelis favoritas!</h1>
         <div className="homeDesign">
           {movies.map((movie) => {
             return (
