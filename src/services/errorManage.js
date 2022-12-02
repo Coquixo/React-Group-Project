@@ -43,7 +43,7 @@ export const errorCheck = (value, type) => {
           return "";
         }
       }
-    case "adress":
+    case "address":
       if (
         !/[a-zA-Z0-9]/gi.test(
           value

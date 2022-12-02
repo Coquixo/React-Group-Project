@@ -4,8 +4,12 @@ import { useNavigate } from "react-router-dom";
 import "./Register.scss";
 import EyeIcon from "../../../components/icons/EyeIcon";
 import EyeSlashIcon from "../../../components/icons/EyeSlashIcon";
+import axios from "axios";
 
 const Register = () => {
+
+  const dataBase = "http://localhost:3001/";
+
   //Hooks
   const [user, setUser] = useState({
     name: "",
@@ -13,7 +17,7 @@ const Register = () => {
     email: "",
     age: "",
     phone: "",
-    adress: "",
+    address: "",
     password: "",
     password2: "",
   });
@@ -24,7 +28,7 @@ const Register = () => {
     emailError: "",
     ageError: "",
     phoneError: "",
-    adressError: "",
+    addressError: "",
     passwordError: "",
     password2Error: "",
   });
@@ -34,6 +38,34 @@ const Register = () => {
   const [passwordShown, setPasswordShown] = useState(false);
 
   const navigate = useNavigate();
+
+  const SignIn = async () => {
+    try {
+
+      let signIn = await axios.post(dataBase + "auth/register", {
+        name: user.name,
+        surname: user.surname,
+        email: user.email,
+        age: user.age,
+        phone: user.phone,
+        address: user.address,
+        password: user.password,
+        rolIdrol: "user"
+      });
+
+      signIn();
+
+
+
+
+    } catch (error) {
+      console.log('registro fallido')
+    }
+
+
+
+
+  };
 
   const inputHandler = (e) => {
     // setUser((prevState) => ({
@@ -75,7 +107,7 @@ const Register = () => {
     <div className="registerDesign">
       <div className="formRegisterSquare">
         <h1 className="registerTittleDesign">WELCOME</h1>
-        <form onSubmit={handleSubmit} >
+        <form onSubmit={SignIn} >
           <input
             type="text"
             name="name"
@@ -130,15 +162,15 @@ const Register = () => {
           <div className="errorInput">{userError.phoneError}</div>
           <input
             type="text"
-            name="adress"
+            name="address"
             className="registerInputs"
-            placeholder="Adress"
+            placeholder="Address"
             onChange={inputHandler}
             onInput={(e) =>
-              errorHandler(e.target.name, e.target.value, "adress")
+              errorHandler(e.target.name, e.target.value, "address")
             }
           />
-          <div className="errorInput">{userError.adressError}</div>
+          <div className="errorInput">{userError.addressError}</div>
           <div className="registerInputs inputContainer">
             <input
               className="inputDesign passwordInput"

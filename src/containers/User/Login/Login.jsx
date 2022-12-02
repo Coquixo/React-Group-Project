@@ -67,28 +67,8 @@ const Login = () => {
     }
   }, []);
 
-  // const logMe = () => {
-  //   console.log("LOGEADO!!");
-  //   //Hardcodeamos un token fingiendo que el backend nos ha devuelto el susodicho
-  //   // let fakeHardCredentials = {
-  //   //   token: "secreto",
-  //   //   name: "Piwi",
-  //   //   email: "piwi@test.com",
-  //   //   phone: "666555444",
-  //   // };
-
-  //   // dispatch(login({ credentials: fakeHardCredentials }));
-
-  //   // setTimeout(() => {
-  //   //   navigate("/");
-  //   // }, 500); //De momento solo va a home.
-  // };
-
-
   const logMe = async (user) => {
     try {
-
-
 
       let resultado = await axios.post(dataBase + "auth/login", {
         email: user.email,
@@ -99,7 +79,6 @@ const Login = () => {
       if (resultado.data.message === "Password or email is incorrect") {//Aqui estoy intentando compararlo con la base de datos
         console.error("Usuario o contraseña incorrecto")
       } else {
-
 
         dispatch(login({ credentials: resultado.data }));
         //Este userReduxCredentials me viene vacio, no funciona
