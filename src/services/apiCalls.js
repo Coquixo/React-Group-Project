@@ -16,10 +16,8 @@ export const registerUser = async (user) => {
 
 //Ultimas añadidas(HAY QUE CAMBIAR LOS ENDPOINTS POR LOS DE NUESTRA BASEDEDATOS)
 export const bringMovies = async () => {
-  let res = await axios.get(
-    dataBase + "/movies"
-  );
-    console.log(res)
+  let res = await axios.get(dataBase + "/movies");
+  console.log(res);
   return res.data;
 };
 
@@ -45,6 +43,14 @@ export const searchSeries = async (criteria) => {
   );
 
   return res.data.results;
+};
+
+export const bringUsers = async (jwt) => {
+  let res = await axios.get(dataBase + "/users/", {
+    headers: { Authorization: `Bearer ${jwt}` },
+  });
+
+  return res.data;
 };
 
 // export const loginUser = async (user) => {
