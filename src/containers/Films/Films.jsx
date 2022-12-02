@@ -28,6 +28,8 @@ const Film = () => {
                 {selectedFilm?.title}
                 <img className="filmPic" src={selectedFilm?.image} />
 
+                {selectedFilm?.overview}
+                
                 {credentials?.credentials?.jwt !== undefined &&
 
                     <div onClick={() => watchMe()} className='buttonDesign'>
