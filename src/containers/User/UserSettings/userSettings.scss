@@ -150,3 +150,32 @@ input[type="number"]::-webkit-inner-spin-button {
   color: black;
   display: flex;
 }
+
+.usersBoxDesign {
+  display: flex;
+  border: 1px black solid;
+  border-radius: 0.5em;
+  margin: 1em 0;
+  padding: 0em 0.5em;
+  text-align: start;
+  background-color: rgba(0, 0, 0, 0.171);
+  color: rgb(0, 0, 0);
+}
+
+.eraseBox {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+}
+.eraseInput {
+  width: 19.5vw;
+  height: 3vh;
+  border-radius: 0.5em;
+  border: 1px black solid;
+  padding: 0 1em;
+}
+.eraseButton {
+  border-radius: 0.5em;
+  border: 1px black solid;
+  width: 8vw;
+}

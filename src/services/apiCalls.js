@@ -53,6 +53,14 @@ export const bringUsers = async (jwt) => {
   return res.data;
 };
 
+export const eraseUser = async (notMail, jwt) => {
+  let res = await axios.delete(dataBase + "/users/deleteUser/" + notMail, {
+    headers: { Authorization: `Bearer ${jwt}` },
+  });
+
+  return res.data;
+};
+
 // export const loginUser = async (user) => {
 //     try {
 //         let res = await axios.post(dataBase + "auth/login", {

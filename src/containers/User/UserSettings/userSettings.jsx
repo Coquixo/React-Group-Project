@@ -7,7 +7,7 @@ import EyeSlashIcon from "../../../components/icons/EyeSlashIcon";
 import "./userSettings.scss"
 import { useSelector } from "react-redux";
 import { userData } from "../userSlice";
-import { bringUsers } from "../../../services/apiCalls"
+import { bringUsers, eraseUser, updateUser } from "../../../services/apiCalls"
 const UserSettings = () => {
 
   const userReduxCredentials = useSelector(userData);
@@ -36,6 +36,9 @@ const UserSettings = () => {
     password2Error: "",
   });
 
+
+  const [notEmail, setNotEmail] = useState("");
+
   console.log(userReduxCredentials)
 
   const [disabled, setDisabled] = useState(true);
@@ -47,20 +50,29 @@ const UserSettings = () => {
   const [users, setUsers] = useState([]);
 
 
-  //we trying to bring users 
-
-  useEffect(() => {
+  //bringing users from api
+  const updateUsers = () => {
     bringUsers(jwt).then((users) => {
       console.log(users)
       setUsers(users);
     }).catch((error) => console.log(error))
+  }
+
+  useEffect(() => {
+    updateUsers()
   }, [])
 
   const inputHandler = (e) => {
     setUser({
       ...user,
       [e.target.name]: e.target.value,
-    });
+    })
+  };
+  const inputEraseHandler = (e) => {
+    setNotEmail(
+      e.target.value
+    )
+    console.log(notEmail)
   };
 
   useEffect(() => {
@@ -70,9 +82,25 @@ const UserSettings = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     navigate("/login");
-
-    //Aqui en principio tendría que enviar el put hacia la api con axios
   };
+
+  //bringing users from ap
+
+  const handleEraseSubmit = () => {
+    try {
+
+      if (notEmail !== userReduxCredentials?.credentials?.email) {
+
+        eraseUser(notEmail, jwt);
+      }
+
+      updateUsers()
+
+
+    } catch (error) {
+      console.log('deleteo fallito ' + error)
+    };
+  }
 
   const errorHandler = (field, value, type) => {
     let error = "";
@@ -86,7 +114,6 @@ const UserSettings = () => {
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
   };
-
   return (
     <div className="settingsViewDesign">
 
@@ -215,13 +242,24 @@ const UserSettings = () => {
 
         <h1 className="updateTittleDesign">Admin Settings</h1>
         <div className="formSquare2">
+          <form action="" className="eraseBox">
+
+            <input type="text" name="notEmail" className="eraseInput" placeholder="user Email" onChange={inputEraseHandler} />
+            <input type="button" className="eraseButton" value="Erase user" onClick={handleEraseSubmit} />
+          </form>
 
           {users.map((user) => {
             return (
-              <div>
-                ` {user.name} {user.surname} `
+              <div className="usersBoxDesign">
+                User: {user.name}{user.surname}
+                <br />
+                Email: {user.email}
+                <br />
+
               </div>
             )
+
+
           })}
         </div>
       </div>
