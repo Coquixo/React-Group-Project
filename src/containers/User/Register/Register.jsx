@@ -57,7 +57,6 @@ const Register = () => {
 
 
 
-
     } catch (error) {
       console.log('registro fallido')
     }
