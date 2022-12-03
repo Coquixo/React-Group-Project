@@ -17,33 +17,38 @@ export const registerUser = async (user) => {
 //Ultimas añadidas(HAY QUE CAMBIAR LOS ENDPOINTS POR LOS DE NUESTRA BASEDEDATOS)
 export const bringMovies = async () => {
   let res = await axios.get(dataBase + "/movies");
-  console.log(res);
+  console.log(res)
+  let res = await axios.get(
+    dataBase + "/movies"
+  );
+    console.log(res.data)
+
   return res.data;
 };
 
 export const searchMovies = async (criteria) => {
-  const res = await movieApi.get(
-    `/movie?api_key=210d6a5dd3f16419ce349c9f1b200d6d&language=en-US&query=${criteria}&page=1&include_adult=false`
-  );
-
-  return res.data.results;
-};
-
-export const bringSeries = async () => {
-  let res = await movieApi.get(
-    "/movie/top_rated?api_key=210d6a5dd3f16419ce349c9f1b200d6d&language=en-US&page=4"
-  );
-
-  return res.data.results;
-};
-
-export const searchSeries = async (criteria) => {
   let res = await axios.get(
-    `/search/movie?api_key=210d6a5dd3f16419ce349c9f1b200d6d&language=en-US&query=${criteria}&page=4&include_adult=false`
+    dataBase + "/movies/title/"+criteria
   );
-
-  return res.data.results;
+    console.log("AQUIELRES",res.data)
+  return res.data;
 };
+
+// export const bringSeries = async () => {
+//   let res = await movieApi.get(
+//     "/movie/top_rated?api_key=210d6a5dd3f16419ce349c9f1b200d6d&language=en-US&page=4"
+//   );
+
+//   return res.data.results;
+// };
+
+// export const searchSeries = async (criteria) => {
+//   let res = await axios.get(
+//     `/search/movie?api_key=210d6a5dd3f16419ce349c9f1b200d6d&language=en-US&query=${criteria}&page=4&include_adult=false`
+//   );
+
+//   return res.data.results;
+// };
 
 export const bringUsers = async (jwt) => {
   let res = await axios.get(dataBase + "/users/", {
