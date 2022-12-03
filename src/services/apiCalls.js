@@ -17,20 +17,14 @@ export const registerUser = async (user) => {
 //Ultimas añadidas(HAY QUE CAMBIAR LOS ENDPOINTS POR LOS DE NUESTRA BASEDEDATOS)
 export const bringMovies = async () => {
   let res = await axios.get(dataBase + "/movies");
-  console.log(res)
-  let res = await axios.get(
-    dataBase + "/movies"
-  );
-    console.log(res.data)
+  console.log(res);
 
   return res.data;
 };
 
 export const searchMovies = async (criteria) => {
-  let res = await axios.get(
-    dataBase + "/movies/title/"+criteria
-  );
-    console.log("AQUIELRES",res.data)
+  let res = await axios.get(dataBase + "/movies/title/" + criteria);
+  console.log("AQUIELRES", res.data);
   return res.data;
 };
 
