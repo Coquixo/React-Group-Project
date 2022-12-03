@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
- 
+
 }
 
 .containerDesign {
@@ -21,11 +21,14 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  //   margin: 1em;
+  margin-top: 3em;
   color: white;
   background-color: rgb(38 38 38);
   justify-content: center;
   overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  display: none;
 }
 
 .movieShow {
@@ -33,7 +36,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 1em;
+  margin-top: 2em;
   margin-bottom: 4em;
   margin-left: 1em;
   margin-right: 1em;
@@ -63,9 +66,5 @@
 .titleDesign {
   margin-top: 1.5em;
   color: white;
-  
+
 }
-
-
-
-

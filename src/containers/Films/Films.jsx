@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { filmData } from "./filmsSlice";
 import { userData } from "../User/userSlice";
 import { useNavigate } from 'react-router-dom';
+import { rentMovie } from '../../services/apiCalls';
 
 const Film = () => {
 
@@ -11,10 +12,24 @@ const Film = () => {
     const credentials = useSelector(userData);
     const navigate = useNavigate();//Necesario para navegar
 
+    //VARIABLE NUEVA
+    const title = selectedFilm?.title;
+    const email = credentials?.credentials?.email;
+    const idUser = credentials?.credentials?.id_user;
+    const jwt = credentials?.credentials?.jwt;
+    const body = { email, title };
+
     const watchMe = () => {
-        console.log("ALQUILADO!!");
-        navigate("/")//De momento solo va a home.
+        console.log("AQUI ESTA EL ID DE USER!!", idUser);
+        console.log("AQUI ESTA EL TITLE DE SELECTED FILM", title)
+        console.log("AQUI ESTA EL JWT", jwt)
+        console.log("AQUI ESTA EL BODY", body)
+        rentMovie(body, jwt);
+        navigate("/profile")//De momento solo va a home.
+
     }
+
+
 
 
     const returnHome = () => {
@@ -31,10 +46,13 @@ const Film = () => {
                 {credentials?.credentials?.jwt !== undefined &&
 
                     <div onClick={() => watchMe()} className='buttonDesign'>
-                        Watch me!
+                        Rent me!
                     </div>
 
                 }
+                <div onClick={() => returnHome()} className='buttonDesign'>
+                    Volver a Home
+                </div>
 
             </div>
         )

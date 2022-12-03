@@ -28,21 +28,7 @@ export const searchMovies = async (criteria) => {
   return res.data;
 };
 
-// export const bringSeries = async () => {
-//   let res = await movieApi.get(
-//     "/movie/top_rated?api_key=210d6a5dd3f16419ce349c9f1b200d6d&language=en-US&page=4"
-//   );
 
-//   return res.data.results;
-// };
-
-// export const searchSeries = async (criteria) => {
-//   let res = await axios.get(
-//     `/search/movie?api_key=210d6a5dd3f16419ce349c9f1b200d6d&language=en-US&query=${criteria}&page=4&include_adult=false`
-//   );
-
-//   return res.data.results;
-// };
 
 export const bringUsers = async (jwt) => {
   let res = await axios.get(dataBase + "/users/", {
@@ -60,33 +46,13 @@ export const eraseUser = async (notMail, jwt) => {
   return res.data;
 };
 
-// export const loginUser = async (user) => {
-//     try {
-//         let res = await axios.post(dataBase + "auth/login", {
-//             mail: user.mail,
-//             password: user.password
-//         });
-//         console.log(res);
-//     } catch (error) {
-//         console.error(error);
-//         return;
-//     }
-// };
 
-// export const registerUser = async (user) => {
-//     try {
-//         let res = await axios.post(dataBase + "auth/register", {
-//             name: user.name,
-//             surname: user.surname,
-//             age: user.age,
-//             phone: user.phone,
-//             address: user.address,
-//             mail: user.mail,
-//             password: user.password
-//         });
-//         console.log(res);
-//     } catch (error) {
-//         console.error(error);
-//         return;
-//     }
-// };
+export const rentMovie = async (body, jwt) => {
+  let res = await axios.post(
+    dataBase + "/orders/newOrderMovie", body, 
+      {headers: { Authorization: `Bearer ${jwt}` }},
+  );
+  console.log("Estoy dentro de rentMovie", res)
+  console.log(res.data)
+  return res;
+};
