@@ -11,12 +11,16 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 
 
 const Home = () => {
+  //Me conecto a RDX en modo lectura.
+  const filmsFromRdx = useSelector(filmData);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   //Hooks
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
+    console.log("soy laspelis de redux", filmsFromRdx)
     if (movies.length === 0) {
       bringMovies()
         .then((movies) => {
@@ -38,19 +42,47 @@ const Home = () => {
 
   if (movies.length === 0) {
     return <div className="homeDesign">soy Home</div>;
-  } else {
+  } else if(filmsFromRdx.details.length > 0){
 
-    // return (
-    //   <ShowMovies />
-
-
-    // );
+    console.log("Estoy dentro", filmsFromRdx)
+    console.log("Devuelveme",filmsFromRdx.details)
     return (
 
 
       <div className="containerDesign">
 
         <SearchBar />
+        <h1>A un solo click de tener tus pelis favoritas!</h1>
+        <div className="homeDesign">
+          {filmsFromRdx.details.map((movie) => {
+            return (
+              <div
+                onClick={() => clickedMovie(movie)}
+                className="movieShow">
+                <img
+                  className="moviePic"
+                  src={movie.image}
+                />
+              </div>
+            );
+          })}
+        </div>
+
+      </div>
+
+
+
+    )
+
+
+  } else  {
+    return (
+
+
+      <div className="containerDesign">
+
+        <SearchBar />
+        <h1 className="titleDesign">A un solo click de tener tus pelis favoritas!</h1>
         <div className="homeDesign">
           {movies.map((movie) => {
             return (
@@ -71,8 +103,7 @@ const Home = () => {
 
 
     )
-
-  }
+  } 
 }
   ;
 export default Home;
