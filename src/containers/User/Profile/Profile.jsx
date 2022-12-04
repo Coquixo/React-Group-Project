@@ -25,9 +25,6 @@ const Profile = () => {
       <div className="menuButtonDesign" onClick={() => navigate("/login")}>
         Rented Movies
       </div>
-      <div className="menuButtonDesign" onClick={() => navigate("/login")}>
-        Rented Series
-      </div>
       <div className="menuButtonDesign" onClick={() => navigate("/userSettings")}>
         User Settings
       </div>

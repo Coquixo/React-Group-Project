@@ -10,6 +10,7 @@ import Film from "./containers/Films/Films";
 import Serie from "./containers/Series/Series";
 import Profile from "./containers/User/Profile/Profile";
 import UserSettings from "./containers/User/UserSettings/userSettings";
+import UserOrder from "./containers/User/UserOrder/UserOrder";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/serie" element={<Serie />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/userSettings" element={<UserSettings />} />
+          <Route path="/userOrder" element={<UserOrder />} />
         </Routes>
       </BrowserRouter>
     </div>

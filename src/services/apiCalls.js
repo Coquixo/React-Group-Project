@@ -57,3 +57,12 @@ export const rentMovie = async (body, jwt) => {
   });
   return res;
 };
+
+export const bringOrders = async (user, jwt) => {
+  let res = await axios.get(dataBase + "/orders/orders/" + user, {
+    headers: { Authorization: `Bearer ${jwt}` }
+  });
+  console.log(res.data.resp);
+
+  return res.data.resp;
+};
