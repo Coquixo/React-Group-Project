@@ -1,11 +1,9 @@
 import axios from "axios";
 
-
-const dataBase = "http://localhost:3001";
+const dataBase = "https://master.d35259stzijjoa.amplifyapp.com";
 
 export const loginUser = async (user) => {
-  
-  let res = await axios.post(dataBase + "/auth/login", user); 
+  let res = await axios.post(dataBase + "/auth/login", user);
   return res;
 };
 
@@ -14,17 +12,15 @@ export const registerUser = async (user) => {
   return res;
 };
 
-
 export const bringMovies = async () => {
   let res = await axios.get(dataBase + "/movies");
-  
 
   return res.data;
 };
 
 export const searchMovies = async (criteria) => {
   let res = await axios.get(dataBase + "/movies/title/" + criteria);
-  
+
   return res.data;
 };
 
@@ -60,9 +56,8 @@ export const rentMovie = async (body, jwt) => {
 
 export const bringOrders = async (user, jwt) => {
   let res = await axios.get(dataBase + "/orders/orders/" + user, {
-    headers: { Authorization: `Bearer ${jwt}` }
+    headers: { Authorization: `Bearer ${jwt}` },
   });
- 
 
   return res.data.resp;
 };
