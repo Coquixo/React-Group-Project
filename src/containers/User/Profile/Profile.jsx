@@ -11,7 +11,7 @@ const Profile = () => {
   const userReduxCredentials = useSelector(userData);
 
   const logout = () => {
-    if (userReduxCredentials?.credentials?.token !== undefined) {
+    if (userReduxCredentials?.credentials?.jwt !== undefined) {
       //aqui borraremos el token y haremos log out :)
       dispatch(userout({ credentials: {} }));
 

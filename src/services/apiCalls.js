@@ -28,10 +28,8 @@ export const searchMovies = async (criteria) => {
   return res.data;
 };
 
-
-
 export const bringUsers = async (jwt) => {
-  let res = await axios.get(dataBase + "/users/", {
+  let res = await axios.get(dataBase + "/users  /", {
     headers: { Authorization: `Bearer ${jwt}` },
   });
 
@@ -46,13 +44,11 @@ export const eraseUser = async (notMail, jwt) => {
   return res.data;
 };
 
-
 export const rentMovie = async (body, jwt) => {
-  let res = await axios.post(
-    dataBase + "/orders/newOrderMovie", body, 
-      {headers: { Authorization: `Bearer ${jwt}` }},
-  );
-  console.log("Estoy dentro de rentMovie", res)
-  console.log(res.data)
+  let res = await axios.post(dataBase + "/orders/newOrderMovie", body, {
+    headers: { Authorization: `Bearer ${jwt}` },
+  });
+  console.log("Estoy dentro de rentMovie", res);
+  console.log(res.data);
   return res;
 };

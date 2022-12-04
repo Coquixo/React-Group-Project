@@ -251,6 +251,8 @@ const UserSettings = () => {
           {users.map((user) => {
             return (
               <div className="usersBoxDesign">
+                Id: {user.id_user}
+                <br />
                 User: {user.name}{user.surname}
                 <br />
                 Email: {user.email}
