@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux"; 
-import { userData, login } from "../userSlice"; 
+import { useSelector, useDispatch } from "react-redux";
+import { userData, login } from "../userSlice";
 import { errorCheck } from "../../../services/errorManage";
 import "./Login.scss";
 
@@ -16,12 +16,12 @@ const Login = () => {
 
   const dataBase = "http://localhost:3001/";
 
- 
-  const navigate = useNavigate(); 
 
-  const dispatch = useDispatch(); 
+  const navigate = useNavigate();
 
-  const userReduxCredentials = useSelector(userData); 
+  const dispatch = useDispatch();
+
+  const userReduxCredentials = useSelector(userData);
 
   //Hooks 
   const [user, setUser] = useState({
@@ -39,7 +39,7 @@ const Login = () => {
 
   // HANDLERS
   const inputHandler = (e) => {
-    
+
     setUser((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
@@ -57,11 +57,11 @@ const Login = () => {
 
   //Life cycle-methods:
   useEffect(() => {
-    
+
 
     if (userReduxCredentials?.credentials?.jwt !== undefined) {
-     
-      navigate("/"); 
+
+      navigate("/");
     }
   }, []);
 
@@ -72,7 +72,7 @@ const Login = () => {
         email: user.email,
         password: user.password
       });
-   
+
 
       if (resultado.data.message === "Password or email is incorrect") {
         console.error("Usuario o contraseña incorrecto")
@@ -87,7 +87,7 @@ const Login = () => {
       }
 
     } catch (error) {
-      
+
       console.error(error)
 
     }
