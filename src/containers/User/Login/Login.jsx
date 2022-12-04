@@ -14,7 +14,7 @@ import EyeSlashIcon from "../../../components/icons/EyeSlashIcon";
 const Login = () => {
 
 
-  const dataBase = "https://master.d35259stzijjoa.amplifyapp.com";
+  const dataBase = "http://localhost:3001/";
 
 
   const navigate = useNavigate();
@@ -68,7 +68,7 @@ const Login = () => {
   const logMe = async (user) => {
     try {
 
-      let resultado = await axios.post(dataBase + "/auth/login", {
+      let resultado = await axios.post(dataBase + "auth/login", {
         email: user.email,
         password: user.password
       });

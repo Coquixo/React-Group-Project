@@ -8,7 +8,7 @@ import axios from "axios";
 
 const Register = () => {
 
-  const dataBase = "https://master.d35259stzijjoa.amplifyapp.com/";
+  const dataBase = "http://localhost:3001/";
 
   //Hooks
   const [user, setUser] = useState({

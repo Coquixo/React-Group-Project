@@ -12,7 +12,7 @@ const UserSettings = () => {
 
   const dispatch = useDispatch();
 
-  const dataBase = "https://master.d35259stzijjoa.amplifyapp.com/";
+  const dataBase = "http://localhost:3001/";
 
   const userReduxCredentials = useSelector(userData);
 

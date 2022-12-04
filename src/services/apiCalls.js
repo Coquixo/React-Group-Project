@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const dataBase = "https://master.d35259stzijjoa.amplifyapp.com";
+const dataBase = "http://localhost:3001";
 
 export const loginUser = async (user) => {
   let res = await axios.post(dataBase + "/auth/login", user);
