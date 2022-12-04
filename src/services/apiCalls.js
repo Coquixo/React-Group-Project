@@ -36,6 +36,13 @@ export const bringUsers = async (jwt) => {
   return res.data;
 };
 
+export const bringUserOrder = async (jwt) => {
+  let res = await axios.get(dataBase + "/orders/appOrders", {
+    headers: { Authorization: `Bearer ${jwt}` },
+  });
+
+  return res.data;
+};
 export const eraseUser = async (notMail, jwt) => {
   let res = await axios.delete(dataBase + "/users/deleteUser/" + notMail, {
     headers: { Authorization: `Bearer ${jwt}` },
@@ -48,7 +55,5 @@ export const rentMovie = async (body, jwt) => {
   let res = await axios.post(dataBase + "/orders/newOrderMovie", body, {
     headers: { Authorization: `Bearer ${jwt}` },
   });
-  console.log("Estoy dentro de rentMovie", res);
-  console.log(res.data);
   return res;
 };
