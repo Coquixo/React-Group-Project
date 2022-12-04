@@ -12,7 +12,7 @@ const UserSettings = () => {
 
   const dispatch = useDispatch();
 
-  const dataBase = "http://localhost:3001/";
+  const dataBase = "https://master.d35259stzijjoa.amplifyapp.com/";
 
   const userReduxCredentials = useSelector(userData);
 
@@ -48,7 +48,7 @@ const UserSettings = () => {
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [passwordShown, setPasswordShown] = useState(false);
 
-  
+
 
   const [ordersUsers, setOrdersUsers] = useState([]);
   const [users, setUsers] = useState([]);
@@ -84,7 +84,7 @@ const UserSettings = () => {
     setNotEmail(
       e.target.value
     )
-    
+
   };
 
   useEffect(() => {
@@ -133,7 +133,7 @@ const UserSettings = () => {
       updateOrdersUsers()
 
     } catch (error) {
-      console.error( error)
+      console.error(error)
     };
   }
 

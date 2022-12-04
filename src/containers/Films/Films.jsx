@@ -13,21 +13,21 @@ const Film = () => {
     const selectedFilm = useSelector(filmData);
     const credentials = useSelector(userData);
     const navigate = useNavigate();
-    
+
 
     const title = selectedFilm?.title;
     const email = credentials?.credentials?.email;
     const jwt = credentials?.credentials?.jwt;
     const body = { email, title };
-    const dataBase = "http://localhost:3001";
+    const dataBase = "https://master.d35259stzijjoa.amplifyapp.com";
 
-    const watchMe = async(body,jwt) => {
+    const watchMe = async (body, jwt) => {
 
         let res = await axios.post(dataBase + "/orders/newOrderMovie", body, {
             headers: { Authorization: `Bearer ${jwt}` },
-          });
-          
-          
+        });
+
+
         dispatch(addOrder({ orders: res.data.resp }));
         navigate("/userOrder")
         return res;
