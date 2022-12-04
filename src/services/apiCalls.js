@@ -29,7 +29,7 @@ export const searchMovies = async (criteria) => {
 };
 
 export const bringUsers = async (jwt) => {
-  let res = await axios.get(dataBase + "/users  /", {
+  let res = await axios.get(dataBase + "/users/", {
     headers: { Authorization: `Bearer ${jwt}` },
   });
 
