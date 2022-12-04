@@ -90,7 +90,7 @@ const Login = () => {
         setTimeout(() => {
 
           navigate("/profile");
-        }, 500);
+        }, 300);
       }
 
     } catch (error) {

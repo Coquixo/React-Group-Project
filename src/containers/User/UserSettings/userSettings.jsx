@@ -5,10 +5,15 @@ import "./userSettings.scss";
 import EyeIcon from "../../../components/icons/EyeIcon";
 import EyeSlashIcon from "../../../components/icons/EyeSlashIcon";
 import "./userSettings.scss"
-import { useSelector } from "react-redux";
-import { userData } from "../userSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { userData, login } from "../userSlice";
 import { bringUsers, eraseUser, bringUserOrder, updateUser } from "../../../services/apiCalls"
+import axios from "axios";
 const UserSettings = () => {
+
+  const dispatch = useDispatch();
+
+  const dataBase = "http://localhost:3001/";
 
   const userReduxCredentials = useSelector(userData);
 
@@ -87,10 +92,33 @@ const UserSettings = () => {
     setDisabled(!acceptedTerms);
   }, [acceptedTerms]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    navigate("/login");
+  const updateUser = async () => {
+    try {
+
+      let updateIt = await axios.put(dataBase + "users/updateUser/" + userReduxCredentials?.credentials?.email,
+        {
+          name: user.name,
+          surname: user.surname,
+          email: user.email,
+          age: user.age,
+          phone: user.phone,
+          address: user.address,
+          password: user.password,
+        },
+
+        {
+          headers: { Authorization: `Bearer ${jwt}` },
+        })
+
+      updateIt()
+      dispatch(login({ credentials: "" }));
+
+    } catch (error) {
+      console.log('registro fallido')
+    }
+
   };
+
 
   //bringing users from ap
 
@@ -133,7 +161,7 @@ const UserSettings = () => {
 
 
           <h1 className="updateTittleDesign">Update your credentials</h1>
-          <form onSubmit={handleSubmit} className="formSquare2">
+          <form onSubmit={updateUser} className="formSquare2">
             <p>NAME</p>
             <input
               type="text"
@@ -308,7 +336,7 @@ const UserSettings = () => {
 
 
           <h1 className="updateTittleDesign">Update your credentials</h1>
-          <form onSubmit={handleSubmit} className="formSquare2">
+          <form onSubmit={updateUser} className="formSquare2">
             <p>NAME</p>
             <input
               type="text"

@@ -54,8 +54,9 @@ const Header = () => {
                 {/* <div className='divInputDesign'>
                     <input className="inputDesign" type="text" name="criteria" placeholder="search a film" onChange={(e) => criteriaHandler(e)} />
                 </div> */}
-                <div onClick={() => navigate("/profile")} className="linkDesign">{userReduxCredentials?.credentials?.name}</div>
                 <div onClick={() => navigate("/")} className="linkDesign">Home</div>
+                <div className='titleDesign1' onClick={() => navigate('/')}>Pop-up Films</div>
+                <div onClick={() => navigate("/profile")} className="linkDesign">{userReduxCredentials?.credentials?.name}</div>
             </div>
         )
     } else {
@@ -68,6 +69,7 @@ const Header = () => {
                 </div> */}
 
                 <div onClick={() => navigate('/login')} className="linkDesign">Login</div>
+                <div className='titleDesign1' onClick={() => navigate('/')}>Pop-up Films</div>
                 <div onClick={() => navigate('/register')} className="linkDesign">Register</div>
             </div>
         )
