@@ -7,7 +7,7 @@ import EyeSlashIcon from "../../../components/icons/EyeSlashIcon";
 import "./userSettings.scss"
 import { useSelector } from "react-redux";
 import { userData } from "../userSlice";
-import { bringUsers, eraseUser, updateUser } from "../../../services/apiCalls"
+import { bringUsers, eraseUser, bringUserOrder, updateUser } from "../../../services/apiCalls"
 const UserSettings = () => {
 
   const userReduxCredentials = useSelector(userData);
@@ -47,19 +47,28 @@ const UserSettings = () => {
 
   const navigate = useNavigate();
 
+  const [ordersUsers, setOrdersUsers] = useState([]);
   const [users, setUsers] = useState([]);
 
 
   //bringing users from api
   const updateUsers = () => {
     bringUsers(jwt).then((users) => {
-      console.log(users)
       setUsers(users);
-    }).catch((error) => console.log(error))
+    }).catch((error) => console.log(error + "funcion de traer usuarios, falta logearse"))
+  }
+
+  //bringing orders from api
+  const updateOrdersUsers = () => {
+    bringUserOrder(jwt).then((ordersUsers) => {
+      setOrdersUsers(ordersUsers);
+
+    }).catch((error) => console.log(error + "funcion de traer ordenes, falta logearse"))
   }
 
   useEffect(() => {
     updateUsers()
+    updateOrdersUsers()
   }, [])
 
   const inputHandler = (e) => {
@@ -95,7 +104,7 @@ const UserSettings = () => {
       }
 
       updateUsers()
-
+      updateOrdersUsers()
 
     } catch (error) {
       console.log('deleteo fallito ' + error)
@@ -247,22 +256,37 @@ const UserSettings = () => {
             <input type="text" name="notEmail" className="eraseInput" placeholder="user Email" onChange={inputEraseHandler} />
             <input type="button" className="eraseButton" value="Erase user" onClick={handleEraseSubmit} />
           </form>
+          <br />
+          User's List
 
           {users.map((user) => {
             return (
               <div className="usersBoxDesign">
-                {/* Id: {user.id_user} */}
-                {/* <br />Ç */}
+                Id: {user.id_user}
+                <br />
                 User: {user.name}{user.surname}
                 <br />
                 Email: {user.email}
                 <br />
-
               </div>
             )
-
-
           })}
+
+          Orders List
+
+          {ordersUsers.map((order) => {
+            return (
+              <div className="usersBoxDesign">
+                Order Id: {order.id_order}
+                <br />
+                User's Order Id {order.UserIdUser}
+                <br />
+                Article's Order Id: {order.ArticleIdArticle}
+                <br />
+              </div>
+            )
+          })}
+
         </div>
       </div>
     </div>
