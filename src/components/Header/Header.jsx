@@ -45,7 +45,7 @@ const Header = () => {
     //             .catch(error => console.log((error)));
     //     }
     // }, [criteria]);
-
+    console.log(userReduxCredentials)
     if (userReduxCredentials?.credentials?.jwt !== undefined) {
         //Esta comparativa viene a decirnos que SI tenemos un token
 
