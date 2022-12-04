@@ -42,7 +42,7 @@ const UserOrder = () => {
     }
 
     if (orders.length === 0) {
-        return <div className="orderDesign">soy Orders</div>;
+        return <div className="orderDesign">You do not have any order in progress</div>;
     } else if (orders.length > 0) {
 
         return (
