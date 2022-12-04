@@ -5,24 +5,24 @@ import { userData, userout } from "../userSlice";
 import { useSelector, useDispatch } from "react-redux";
 
 const Profile = () => {
-  //hooks
+  
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const userReduxCredentials = useSelector(userData);
 
   const logout = () => {
     if (userReduxCredentials?.credentials?.jwt !== undefined) {
-      //aqui borraremos el token y haremos log out :)
+      
       dispatch(userout({ credentials: {} }));
 
-      //inmediatamente despues del logout, conduzco al usuario a home.
+     
       return navigate("/");
     }
   };
 
   return (
     <div className="menuDesign">
-      <div className="menuButtonDesign" onClick={() => navigate("/login")}>
+      <div className="menuButtonDesign" onClick={() => navigate("/userOrder")}>
         Rented Movies
       </div>
       <div className="menuButtonDesign" onClick={() => navigate("/userSettings")}>

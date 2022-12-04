@@ -1,5 +1,5 @@
 .headerDesign {
-  height: 10vh; //Le damos un 20x100
+  height: 10vh; 
   width: 100vw;
 
   display: flex;
@@ -35,12 +35,7 @@
   opacity: 100%;
   font-size: 1.91em;
 }
-// .divInputDesign {
-//   background-color: rgb(156, 156, 156);
-//   margin: 0.3em;
-//   width: 14vw;
-//   height: 5vh;
-// }
+
 
 .inputDesign {
   margin: 0.3em;
@@ -77,4 +72,5 @@
   padding: 0.5em;
   border-radius: 0.5em;
   background-color: rgba(255, 255, 255, 0.244);
+  margin-bottom: 0.1em;
 }

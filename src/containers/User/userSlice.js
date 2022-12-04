@@ -23,11 +23,9 @@ export const userSlice = createSlice({
     
 });
 
-export const { login, userout } = userSlice.actions;//Este login que exportamos es el mismo login que contiene los reducers.
-//Lo llamaremos en el componente container login
+export const { login, userout } = userSlice.actions;
 
-//userData contiene el estado del reducer, es decir, userData es lo que van a leer
-// los componentes conectados a este reducer, para saber sus credenciales
+
 
 export const userData = (state) => state.user;
   

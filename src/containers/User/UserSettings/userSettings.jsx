@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { errorCheck } from "../../../services/errorManage";
-import { useNavigate } from "react-router-dom";
 import "./userSettings.scss";
 import EyeIcon from "../../../components/icons/EyeIcon";
 import EyeSlashIcon from "../../../components/icons/EyeSlashIcon";
 import "./userSettings.scss"
 import { useSelector, useDispatch } from "react-redux";
 import { userData, login } from "../userSlice";
-import { bringUsers, eraseUser, bringUserOrder, updateUser } from "../../../services/apiCalls"
+import { bringUsers, eraseUser, bringUserOrder } from "../../../services/apiCalls"
 import axios from "axios";
 const UserSettings = () => {
 
@@ -43,13 +42,13 @@ const UserSettings = () => {
 
   const [notEmail, setNotEmail] = useState("");
 
-  console.log(userReduxCredentials)
+
 
   const [disabled, setDisabled] = useState(true);
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [passwordShown, setPasswordShown] = useState(false);
 
-  const navigate = useNavigate();
+  
 
   const [ordersUsers, setOrdersUsers] = useState([]);
   const [users, setUsers] = useState([]);
@@ -59,7 +58,7 @@ const UserSettings = () => {
   const updateUsers = () => {
     bringUsers(jwt).then((users) => {
       setUsers(users);
-    }).catch((error) => console.log(error + "funcion de traer usuarios, falta logearse"))
+    }).catch((error) => console.error(error))
   }
 
   //bringing orders from api
@@ -67,7 +66,7 @@ const UserSettings = () => {
     bringUserOrder(jwt).then((ordersUsers) => {
       setOrdersUsers(ordersUsers);
 
-    }).catch((error) => console.log(error + "funcion de traer ordenes, falta logearse"))
+    }).catch((error) => console.error(error))
   }
 
   useEffect(() => {
@@ -85,7 +84,7 @@ const UserSettings = () => {
     setNotEmail(
       e.target.value
     )
-    console.log(notEmail)
+    
   };
 
   useEffect(() => {
@@ -114,7 +113,7 @@ const UserSettings = () => {
       dispatch(login({ credentials: "" }));
 
     } catch (error) {
-      console.log('registro fallido')
+      console.error('Registro fallido')
     }
 
   };
@@ -134,7 +133,7 @@ const UserSettings = () => {
       updateOrdersUsers()
 
     } catch (error) {
-      console.log('deleteo fallito ' + error)
+      console.error( error)
     };
   }
 

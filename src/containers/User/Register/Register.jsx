@@ -58,7 +58,7 @@ const Register = () => {
 
 
     } catch (error) {
-      console.log('registro fallido')
+      console.error('Sign up failed')
     }
 
 
@@ -67,10 +67,6 @@ const Register = () => {
   };
 
   const inputHandler = (e) => {
-    // setUser((prevState) => ({
-    //     ...prevState,
-    //     [e.target.name]: e.target.value
-    // }));
     setUser({
       ...user,
       [e.target.name]: e.target.value,

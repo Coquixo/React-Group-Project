@@ -2,16 +2,15 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { bringMovies } from "../../services/apiCalls";
 import { useSelector, useDispatch } from "react-redux";
-import { userData } from "../User/userSlice";
 import { filmData, addFilm } from "../Films/filmsSlice";
-import { serieData, addSerie } from "../Series/seriesSlice";
+
 
 import "./Home.scss";
 import SearchBar from "../../components/SearchBar/SearchBar";
 
 
 const Home = () => {
-  //Me conecto a RDX en modo lectura.
+
   const filmsFromRdx = useSelector(filmData);
 
   const dispatch = useDispatch();
@@ -20,18 +19,18 @@ const Home = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    console.log("soy laspelis de redux", filmsFromRdx)
+    
     if (movies.length === 0) {
       bringMovies()
         .then((movies) => {
           setMovies(movies);
         })
-        .catch((error) => console.log(error));
+        .catch((error) => console.error(error));
     }
   }, []);
 
   const clickedMovie = (movie) => {
-    //Guardo la película seleccionada en redux.
+    
 
     dispatch(addFilm({ ...movie, details: movie }));
 
@@ -44,8 +43,7 @@ const Home = () => {
     return <div className="homeDesign">soy Home</div>;
   } else if(filmsFromRdx.details.length > 0){
 
-    console.log("Estoy dentro", filmsFromRdx)
-    console.log("Devuelveme",filmsFromRdx.details)
+  
     return (
 
 
@@ -63,6 +61,8 @@ const Home = () => {
                   className="moviePic"
                   src={movie.image}
                 />
+                <p className="pOfHome">{movie.articleIdArticle}</p>
+                
               </div>
             );
           })}
@@ -93,6 +93,7 @@ const Home = () => {
                   className="moviePic"
                   src={movie.image}
                 />
+                 <p className="pOfHome">{movie.articleIdArticle}</p>
               </div>
             );
           })}

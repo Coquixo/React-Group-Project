@@ -24,17 +24,17 @@ const SearchBar = () => {
 
         if (criteria !== '') {
 
-            //Debounce....
+            
             const bring = setTimeout(() => {
                 searchMovies(criteria)
                     .then(res => {
-                        console.log("que ha pasado???? ", res);
+                        
 
-                        //Ahora que tengo las películas...las guardo en redux....
+                        
                         dispatch(addSearch({ details: res}))
-                        console.log("ESTEESELDELSEARCH",res)
+                        
                     })
-                    .catch(error => console.log((error)));
+                    .catch(error => console.error((error)));
             }, 350);
             return () => clearTimeout(bring);
 

@@ -1,11 +1,11 @@
 import axios from "axios";
-import { movieApi } from "./movieApi";
+
 
 const dataBase = "http://localhost:3001";
 
 export const loginUser = async (user) => {
-  //el user se lo he metido cuando he implementado la funcion en la otra funcion logMe
-  let res = await axios.post(dataBase + "/auth/login", user); // Pasariamos un body, que en este caso es user.
+  
+  let res = await axios.post(dataBase + "/auth/login", user); 
   return res;
 };
 
@@ -14,17 +14,17 @@ export const registerUser = async (user) => {
   return res;
 };
 
-//Ultimas añadidas(HAY QUE CAMBIAR LOS ENDPOINTS POR LOS DE NUESTRA BASEDEDATOS)
+
 export const bringMovies = async () => {
   let res = await axios.get(dataBase + "/movies");
-  console.log(res);
+  
 
   return res.data;
 };
 
 export const searchMovies = async (criteria) => {
   let res = await axios.get(dataBase + "/movies/title/" + criteria);
-  console.log("AQUIELRES", res.data);
+  
   return res.data;
 };
 
@@ -62,7 +62,7 @@ export const bringOrders = async (user, jwt) => {
   let res = await axios.get(dataBase + "/orders/orders/" + user, {
     headers: { Authorization: `Bearer ${jwt}` }
   });
-  console.log(res.data.resp);
+ 
 
   return res.data.resp;
 };

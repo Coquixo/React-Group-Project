@@ -12,22 +12,16 @@ export const orderSlice = createSlice({
           ...action.payload
         }
       },
-    //   userout: (state, action) => {
-    //     return {
-    //       ...state,
-    //       ...action.payload
-    //     }
-    //   }
+    
       
     }
     
 });
 
-export const { addOrder  } = orderSlice.actions;//Este newOrder que exportamos es el mismo newOrder que contiene los reducers.
+export const { addOrder  } = orderSlice.actions;
 
 
-//orderData contiene el estado del reducer, es decir, orderData es lo que van a leer
-// los componentes conectados a este reducer, para saber sus credenciales
+
 
 export const orderData = (state) => state.order;
   
