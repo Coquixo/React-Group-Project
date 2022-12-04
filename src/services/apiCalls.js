@@ -29,7 +29,7 @@ export const searchMovies = async (criteria) => {
 };
 
 export const bringUsers = async (jwt) => {
-  let res = await axios.get(dataBase + "/users  /", {
+  let res = await axios.get(dataBase + "/users/", {
     headers: { Authorization: `Bearer ${jwt}` },
   });
 
@@ -51,4 +51,13 @@ export const rentMovie = async (body, jwt) => {
   console.log("Estoy dentro de rentMovie", res);
   console.log(res.data);
   return res;
+};
+
+export const bringOrders = async (user, jwt) => {
+  let res = await axios.get(dataBase + "/orders/orders/" + user, {
+    headers: { Authorization: `Bearer ${jwt}` }
+  });
+  console.log(res.data.resp);
+
+  return res.data.resp;
 };
