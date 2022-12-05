@@ -19,12 +19,46 @@ We can register as a user, log in, search for movies by title and add each movie
 
 ## Views
 
+First of all, we are at home
 
+<br>
+<img src="./img/Home.PNG" width="400em"/>
+<br>
 
+To connect as a user, first we will go to the registry, and we will registe
+<br>
+<img src="./img/Register.PNG" width="400em"/>
+<br>
 
+The next step will be to log in to the login view
 
+<br>
+<img src="./img/Login.PNG" width="400em"/>
+<br>
 
+Once we are logged in, we will click on a movie, and we will have the option to rent it
 
+<br>
+<img src="./img/Film.PNG" width="400em"/>
+<br>
+
+By pressing the rent button, it will direct us to the view of our orders. Here it will show us all the orders of the user himself
+
+<br>
+<img src="./img/Rents.PNG" width="400em"/>
+<br>
+
+Finally, we see the settings view. If we are admin, the admin menu will also appear, and if not, not.
+
+<br>
+<img src="./img/settings.PNG" width="400em"/>
+<br>
+
+Here, the user settings view
+
+<br>
+<img src="./img/SettingsUser.PNG" width="400em"/>
+<br>
 
 ***
 
