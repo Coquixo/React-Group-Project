@@ -34,9 +34,6 @@ const Film = () => {
 
     }
 
-
-
-
     const returnHome = () => {
         navigate("/");
     }

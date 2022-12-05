@@ -40,7 +40,7 @@ const Home = () => {
   };
 
   if (movies.length === 0) {
-    return <div className="homeDesign">soy Home</div>;
+    return <div className="homeDesign"></div>;
   } else if (filmsFromRdx.details.length > 0) {
 
 

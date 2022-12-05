@@ -55,6 +55,7 @@ const Register = () => {
 
       signIn();
 
+      navigate("/login")
 
 
     } catch (error) {
@@ -80,10 +81,6 @@ const Register = () => {
     setDisabled(userIsNotFilled || !acceptedTerms);
   }, [user, acceptedTerms]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    navigate("/login");
-  };
 
   const errorHandler = (field, value, type) => {
     let error = "";
