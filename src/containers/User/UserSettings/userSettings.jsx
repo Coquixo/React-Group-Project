@@ -309,9 +309,9 @@ const UserSettings = () => {
                 <div className="usersBoxDesign">
                   Order Id: {order.id_order}
                   <br />
-                  User's Order Id {order.UserIdUser}
+                  User's Order Id {order.userIdUser}
                   <br />
-                  Article's Order Id: {order.ArticleIdArticle}
+                  Article's Order Id: {order.articleIdArticle}
                   <br />
                 </div>
               )
