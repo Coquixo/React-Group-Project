@@ -19,7 +19,7 @@ const Home = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    
+
     if (movies.length === 0) {
       bringMovies()
         .then((movies) => {
@@ -30,7 +30,7 @@ const Home = () => {
   }, []);
 
   const clickedMovie = (movie) => {
-    
+
 
     dispatch(addFilm({ ...movie, details: movie }));
 
@@ -41,9 +41,9 @@ const Home = () => {
 
   if (movies.length === 0) {
     return <div className="homeDesign">soy Home</div>;
-  } else if(filmsFromRdx.details.length > 0){
+  } else if (filmsFromRdx.details.length > 0) {
 
-  
+
     return (
 
 
@@ -52,9 +52,10 @@ const Home = () => {
         <SearchBar />
         <h1 className="titleDesign">Just one click away from your favorite movie!</h1>
         <div className="homeDesign">
-          {filmsFromRdx.details.map((movie) => {
+          {filmsFromRdx.details.map((movie, index) => {
             return (
               <div
+                key={index}
                 onClick={() => clickedMovie(movie)}
                 className="movieShow">
                 <img
@@ -62,7 +63,7 @@ const Home = () => {
                   src={movie.image}
                 />
                 <p className="pOfHome">{movie.articleIdArticle}</p>
-                
+
               </div>
             );
           })}
@@ -75,7 +76,7 @@ const Home = () => {
     )
 
 
-  } else  {
+  } else {
     return (
 
 
@@ -84,16 +85,17 @@ const Home = () => {
         <SearchBar />
         <h1 className="titleDesign">Just one click away from your favorite movie!</h1>
         <div className="homeDesign">
-          {movies.map((movie) => {
+          {movies.map((movie, index) => {
             return (
               <div
+                key={index}
                 onClick={() => clickedMovie(movie)}
                 className="movieShow">
                 <img
                   className="moviePic"
                   src={movie.image}
                 />
-                 <p className="pOfHome">{movie.articleIdArticle}</p>
+                <p className="pOfHome">{movie.articleIdArticle}</p>
               </div>
             );
           })}
@@ -104,7 +106,7 @@ const Home = () => {
 
 
     )
-  } 
+  }
 }
   ;
 export default Home;
