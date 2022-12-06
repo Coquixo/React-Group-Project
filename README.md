@@ -35,13 +35,14 @@ Some of the funcionalities are:
 ## Repositories
 
 [Front End](https://github.com/Coquixo/React-Group-Project#authors)
+
 [Back End](https://github.com/Coquixo/project04-backendmovies)
 
 ---
 
 ## Environment Install
 
-#####Back End Steps:
+##### Back End Steps:
 
 - In order to start the project in our device we have to copy this link: "https://github.com/Coquixo/project04-backendmovies.git"
 - Open our IDE console, insert "git clone" then paste the link and enter.
@@ -50,7 +51,7 @@ Some of the funcionalities are:
 - Change file .env/config.js in order to set your enviorment variables into the container. API's port must be on 3001 on index.js lane 8.
 - Execute 'npm run dev' on terminal.
 
-#####Front End Steps:
+##### Front End Steps:
 
 - In order to start the project in our device we have to copy this link: "https://github.com/Coquixo/React-Group-Project.git"
 - Open our IDE console, insert "git clone" then paste the link and enter.
