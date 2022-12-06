@@ -31,7 +31,6 @@ export const errorCheck = (value, type) => {
       }
 
     case "password":
-    case "password2":
       if (value.length < 8) {
         return "Write at least 8 characters";
       } else {
@@ -43,6 +42,9 @@ export const errorCheck = (value, type) => {
           return "";
         }
       }
+    case "password2":
+      return "*Passwords do not match";
+
     case "credentials":
       return "Wrong email or password";
     case "address":

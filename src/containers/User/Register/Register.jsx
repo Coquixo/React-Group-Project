@@ -52,19 +52,11 @@ const Register = () => {
         password: user.password,
         rolIdrol: "user"
       });
-
       signIn();
-
       navigate("/login")
-
-
     } catch (error) {
       console.error('Sign up failed')
     }
-
-
-
-
   };
 
   const inputHandler = (e) => {
@@ -182,16 +174,16 @@ const Register = () => {
           </div>
           <div className="errorInput">{userError.passwordError}</div>
           <input
-            type="password"
+            type="password2"
             name="password2"
             className="registerInputs"
             placeholder="Repeat your password"
             onChange={inputHandler}
             onInput={(e) =>
-              errorHandler(e.target.name, e.target.value, "password")
+              errorHandler(e.target.name, e.target.value, "password2")
             }
           />
-          <div className="errorInput">{userError.password2Error}</div>
+          <div className="errorInput">{(user.password != user.password2 ? userError.password2Error : "")}</div>
           <div className="registerAdviseDesign">
 
             <input
