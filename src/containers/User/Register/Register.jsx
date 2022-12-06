@@ -174,7 +174,7 @@ const Register = () => {
           </div>
           <div className="errorInput">{userError.passwordError}</div>
           <input
-            type="password2"
+            type="password"
             name="password2"
             className="registerInputs"
             placeholder="Repeat your password"
@@ -192,8 +192,7 @@ const Register = () => {
               onChange={() => setAcceptedTerms(!acceptedTerms)}
             />
             <p>
-
-              He leido la <i>politica</i> de <i>privacidad</i> de la empresa{" "}
+              I've readen the <i>policy</i> from the <i>company</i> and i agree with it.
             </p>
           </div>
           <br></br>

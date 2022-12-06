@@ -12,7 +12,6 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 const Home = () => {
 
   const filmsFromRdx = useSelector(filmData);
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
   //Hooks
@@ -30,10 +29,7 @@ const Home = () => {
   }, []);
 
   const clickedMovie = (movie) => {
-
-
     dispatch(addFilm({ ...movie, details: movie }));
-
     setTimeout(() => {
       navigate("/film");
     }, 750);
@@ -43,14 +39,10 @@ const Home = () => {
     return <div className="homeDesign"></div>;
   } else if (filmsFromRdx.details.length > 0) {
 
-
     return (
-
-
       <div className="containerDesign">
-
         <SearchBar />
-        <h1 className="titleDesign">Just one click away from your favorite movie!</h1>
+        <h1 className="titleDesign">One click away from your favourite movie</h1>
         <div className="homeDesign">
           {filmsFromRdx.details.map((movie, index) => {
             return (
@@ -68,22 +60,13 @@ const Home = () => {
             );
           })}
         </div>
-
       </div>
-
-
-
     )
-
-
   } else {
     return (
-
-
       <div className="containerDesign">
-
         <SearchBar />
-        <h1 className="titleDesign">Just one click away from your favorite movie!</h1>
+        <h1 className="titleDesign">One click away from your favourite movie</h1>
         <div className="homeDesign">
           {movies.map((movie, index) => {
             return (
@@ -100,13 +83,8 @@ const Home = () => {
             );
           })}
         </div>
-
       </div>
-
-
-
     )
   }
 }
-  ;
 export default Home;

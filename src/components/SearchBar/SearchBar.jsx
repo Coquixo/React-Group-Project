@@ -12,32 +12,20 @@ const SearchBar = () => {
     //HOOK
     const [criteria, setCriteria] = useState('');
 
-
     //HANDLER
     const criteriaHandler = (e) => {
         setCriteria(e.target.value);
     }
-
-
-
     useEffect(() => {
-
         if (criteria !== '') {
-
-            
             const bring = setTimeout(() => {
                 searchMovies(criteria)
                     .then(res => {
-                        
-
-                        
-                        dispatch(addSearch({ details: res}))
-                        
+                        dispatch(addSearch({ details: res }))
                     })
                     .catch(error => console.error((error)));
-            }, 350);
+            }, 150);
             return () => clearTimeout(bring);
-
         } else if (criteria === '') {
             //Guardo en RDX pelis vacías...
             dispatch(cleanSearch({ details: {} }))
@@ -47,7 +35,6 @@ const SearchBar = () => {
     return (
         <div className='divInputDesign'>
             <div className="search-box">
-                <button className="btn-search"><i className="fas fa-search"></i></button>
                 <input type="text" name="criteria" className="input-search" placeholder="Search a film" onChange={(e) => criteriaHandler(e)} />
             </div>
 

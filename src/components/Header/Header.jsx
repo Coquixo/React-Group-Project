@@ -14,12 +14,12 @@ const Header = () => {
 
     const navigate = useNavigate();
     const userReduxCredentials = useSelector(userData);
-    
 
-  
-    
+
+
+
     if (userReduxCredentials?.credentials?.jwt !== undefined) {
-        
+
 
         return (
             <div className='headerDesign'>
@@ -29,14 +29,14 @@ const Header = () => {
             </div>
         )
     } else {
-        
+
 
         return (
             <div className='headerDesign'>
 
                 <div onClick={() => navigate('/login')} className="linkDesign">Login</div>
                 <div className='titleDesign1' onClick={() => navigate('/')}>Pop-up </div>
-                <div onClick={() => navigate('/register')} className="linkDesign">Register</div>
+                <div onClick={() => navigate('/register')} className="linkDesign">Sign In</div>
             </div>
         )
     }

@@ -251,10 +251,10 @@ const UserSettings = () => {
               placeholder="Repeat your password"
               onChange={inputHandler}
               onInput={(e) =>
-                errorHandler(e.target.name, e.target.value, "password")
+                errorHandler(e.target.name, e.target.value, "password2")
               }
             />
-            <div className="errorInput">{userError.password2Error}</div>
+            <div className="errorInput">{(user.password != user.password2 ? userError.password2Error : "")}</div>
             <div className="adviseDesign">
               <input
                 type="checkbox"

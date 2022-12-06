@@ -27,7 +27,7 @@ p {
 }
 
 .settingsBoxDesign {
-  height: 90vh; 
+  height: 90vh;
   width: 50vw;
   flex-direction: column;
   justify-content: center;
@@ -129,13 +129,12 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .submitButton {
- 
   border: 2px solid white;
   height: 5vh;
   width: 25%;
   border-radius: 1em;
   background-color: aqua;
-  color: rgb(255, 255, 255);
+  // color: rgb(255, 255, 255);
   cursor: pointer;
   font-weight: 500;
 }
