@@ -33,7 +33,7 @@ export const errorCheck = (value, type) => {
     case "password":
     case "password2":
       if (value.length < 8) {
-        return "Write 8 characters at least";
+        return "Write at least 8 characters";
       } else {
         //Checking the password format....
 
@@ -43,6 +43,8 @@ export const errorCheck = (value, type) => {
           return "";
         }
       }
+    case "credentials":
+      return "Wrong email or password";
     case "address":
       if (
         !/[a-zA-Z0-9]/gi.test(

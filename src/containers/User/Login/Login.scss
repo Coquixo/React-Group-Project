@@ -1,5 +1,5 @@
 .loginDesign {
-  height: 90vh; 
+  height: 90vh;
   width: 100vw;
 
   display: flex;
@@ -28,7 +28,8 @@
   border: 2px solid white;
   border-radius: 1em;
   background-color: aqua;
-  color: rgb(255, 255, 255);
+  color: black;
+
   cursor: pointer;
   font-weight: 500;
 }
@@ -89,7 +90,7 @@
 
 .inputDesign {
   text-align: center;
-  background: none;
+  // background: none;
   border: none;
   width: 100%;
 }

@@ -13,29 +13,25 @@ import EyeSlashIcon from "../../../components/icons/EyeSlashIcon";
 
 const Login = () => {
 
-
+  //Hooks 
   const dataBase = "http://localhost:3001/";
 
-
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
-
   const userReduxCredentials = useSelector(userData);
 
-  //Hooks 
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
-
   const [userError, setUserError] = useState({
     emailError: "",
     passwordError: "",
+    passwordMailError: "",
+
   });
-
-
   const [passwordShown, setPasswordShown] = useState(false);
+  const [wrongCredentials, setWrongCretentialas] = useState(false)
 
   // HANDLERS
   const inputHandler = (e) => {
@@ -57,43 +53,26 @@ const Login = () => {
 
   //Life cycle-methods:
   useEffect(() => {
-
-
     if (userReduxCredentials?.credentials?.jwt !== undefined) {
-
       navigate("/");
     }
   }, []);
 
   const logMe = async (user) => {
     try {
-
       let resultado = await axios.post(dataBase + "auth/login", {
         email: user.email,
         password: user.password
       });
-
-
-      if (resultado.data.message === "Password or email is incorrect") {
-        console.error("Usuario o contraseña incorrecto")
-      } else {
-
-        dispatch(login({ credentials: resultado.data }));
-
-        setTimeout(() => {
-
-          navigate("/profile");
-        }, 300);
-      }
-
+      dispatch(login({ credentials: resultado.data }));
+      setTimeout(() => {
+        navigate("/");
+      }, 300);
+      setWrongCretentialas(false);
     } catch (error) {
-
-      console.error(error)
-
+      setWrongCretentialas(true)
     }
-
   };
-
 
   //PASSWORD-EYE
   const togglePassword = () => {
@@ -126,7 +105,7 @@ const Login = () => {
             placeholder="password"
             onChange={(e) => inputHandler(e)}
             onInput={(e) =>
-              errorHandler(e.target.name, e.target.value, "password")
+              errorHandler(e.target.name, e.target.value, (wrongCredentials === false ? "password" : "credentials"))
             }
             className={
               userError.passwordError === ""
@@ -143,7 +122,7 @@ const Login = () => {
         <div className="errorMessage">{userError.passwordError}</div>
       </div>
       <div onClick={() => logMe(user)} className="buttonDesign">
-        Login me!
+        Log In
       </div>
     </div>
   );
